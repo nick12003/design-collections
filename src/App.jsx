@@ -1,9 +1,14 @@
+import Layout from './components/Layout';
+import Home from './components/Home';
+
 function App() {
   return (
-    <div className="App">
-      <p className="bg-red-500 text-white">Hello Vite + React + Tailwind CSS!</p>
+    <div>
+      <Layout>
+        <Home />
+      </Layout>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
