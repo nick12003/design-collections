@@ -1,19 +1,23 @@
 import { useState } from 'react';
+import { Outlet, Link } from 'react-router-dom';
 
 import Navbar from './Navbar';
 import Menu from './Menu';
 
-const Layout = ({ children }) => {
+const Layout = () => {
   const [isMenuOpen, setMenuState] = useState(false);
 
-  const menuHandle = () => setMenuState((pre) => !pre);
+  const openMenu = () => setMenuState(true);
+  const closeMenu = () => setMenuState(false);
 
   return (
     <div className="flex min-h-screen w-full flex-col justify-between">
       <div>
-        <Navbar isMenuOpen={isMenuOpen} onClickMenu={menuHandle} />
-        <Menu isMenuOpen={isMenuOpen}>list</Menu>
-        <div className={`h-[calc(100vh-64px)]`}>{children}</div>
+        <Navbar {...{ isMenuOpen, openMenu, closeMenu }} />
+        <Menu {...{ isMenuOpen, closeMenu }} />
+        <div className={`h-[calc(100vh-64px)]`}>
+          <Outlet />
+        </div>
       </div>
     </div>
   );
