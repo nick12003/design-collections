@@ -10,7 +10,7 @@ import { config } from '../../routerConfig';
 const Menu = ({ isMenuOpen, closeMenu }) => {
   return (
     <div
-      className={classNames('bg-slate-800 min-w-[300px] w-3/12 min-h-screen fixed ', {
+      className={classNames('bg-slate-800 min-w-[300px] w-3/12 min-h-screen fixed z-10', {
         'animate-ShowMenu': isMenuOpen,
         'animate-HideMenu': !isMenuOpen,
       })}

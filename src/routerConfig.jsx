@@ -38,6 +38,10 @@ export const config = {
       element: lazyLoadCollections('BackgroundSlider'),
     },
     {
+      path: 'BlurryLoading',
+      element: lazyLoadCollections('BlurryLoading'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
