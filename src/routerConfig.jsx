@@ -34,6 +34,10 @@ export const config = {
       element: lazyLoadCollections('AutoTextEffect'),
     },
     {
+      path: 'BackgroundSlider',
+      element: lazyLoadCollections('BackgroundSlider'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },

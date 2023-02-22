@@ -10,6 +10,9 @@ const myUtilities = plugin(function ({ addUtilities }) {
     '.rotate-y-360': {
       transform: 'rotateY(360deg)',
     },
+    '.-rotate-y-50%': {
+      transform: 'rotateY(-50%)',
+    },
   });
 });
 
