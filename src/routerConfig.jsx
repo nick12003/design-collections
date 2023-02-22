@@ -26,8 +26,8 @@ export const config = {
       element: lazyLoadCollections('AnimatedCountdown'),
     },
     {
-      path: 'test',
-      element: 'test',
+      path: 'AnimatedNavigation',
+      element: lazyLoadCollections('AnimatedNavigation'),
     },
     {
       path: '*',
