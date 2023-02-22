@@ -30,6 +30,10 @@ export const config = {
       element: lazyLoadCollections('AnimatedNavigation'),
     },
     {
+      path: 'AutoTextEffect',
+      element: lazyLoadCollections('AutoTextEffect'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
