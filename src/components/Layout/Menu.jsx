@@ -3,10 +3,14 @@ import classNames from 'classnames';
 
 import { config } from '../../routerConfig';
 
+/**
+ * 待處理: 第一次render時menu會先出現再收合
+ */
+
 const Menu = ({ isMenuOpen, closeMenu }) => {
   return (
     <div
-      className={classNames('bg-slate-800 min-h-screen min-w-[300px] w-3/12 fixed', {
+      className={classNames('bg-slate-800 min-w-[300px] w-3/12 min-h-screen fixed ', {
         'animate-ShowMenu': isMenuOpen,
         'animate-HideMenu': !isMenuOpen,
       })}
