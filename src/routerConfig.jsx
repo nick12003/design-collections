@@ -66,6 +66,10 @@ export const config = {
       element: lazyLoadCollections('DragNDrop'),
     },
     {
+      path: 'DrawingApp',
+      element: lazyLoadCollections('DrawingApp'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
