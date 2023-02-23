@@ -94,6 +94,10 @@ export const config = {
       element: lazyLoadCollections('FormWave'),
     },
     {
+      path: 'GithubProfiles',
+      element: lazyLoadCollections('GithubProfiles'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
