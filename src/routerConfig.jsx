@@ -90,6 +90,10 @@ export const config = {
       element: lazyLoadCollections('FeedbackUiDesign'),
     },
     {
+      path: 'FormWave',
+      element: lazyLoadCollections('FormWave'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
