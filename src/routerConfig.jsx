@@ -98,6 +98,10 @@ export const config = {
       element: lazyLoadCollections('GithubProfiles'),
     },
     {
+      path: 'GoodCheapFast',
+      element: lazyLoadCollections('GoodCheapFast'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
