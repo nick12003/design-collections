@@ -102,6 +102,10 @@ export const config = {
       element: lazyLoadCollections('GoodCheapFast'),
     },
     {
+      path: 'HiddenSearchWidget',
+      element: lazyLoadCollections('HiddenSearchWidget'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
