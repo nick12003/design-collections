@@ -54,6 +54,10 @@ export const config = {
       element: lazyLoadCollections('CustomRangeSlider/index'),
     },
     {
+      path: 'DadJokes',
+      element: lazyLoadCollections('DadJokes/index'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
