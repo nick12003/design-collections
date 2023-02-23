@@ -49,6 +49,10 @@ module.exports = {
           '60%': { transform: 'translate(-50%, -50%) rotate(20deg)' },
           '100%': { transform: 'translate(-50%, -50%) rotate(-120deg)' },
         },
+        ButtonRippleEffect_scale: {
+          '0%': { transform: 'translate(-50%, -50%) scale(0)', opacity: 1 },
+          '100%': { transform: 'translate(-50%, -50%) scale(3)', opacity: 0 },
+        },
       },
       animation: {
         ShowMenu: 'ShowMenu 0.5s ease-in-out forwards',
@@ -57,6 +61,7 @@ module.exports = {
         AnimatedCountdown_Show: 'AnimatedCountdown_Show 0.2s ease-out',
         AnimatedCountdown_goIn: 'AnimatedCountdown_goIn 0.5s ease-out',
         AnimatedCountdown_goOut: 'AnimatedCountdown_goOut 0.5s ease-out',
+        ButtonRippleEffect_scale: 'ButtonRippleEffect_scale 0.5s ease-out',
       },
     },
   },

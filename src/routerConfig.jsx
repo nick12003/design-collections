@@ -42,6 +42,10 @@ export const config = {
       element: lazyLoadCollections('BlurryLoading'),
     },
     {
+      path: 'ButtonRippleEffect',
+      element: lazyLoadCollections('ButtonRippleEffect'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
