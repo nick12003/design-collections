@@ -82,6 +82,10 @@ export const config = {
       element: lazyLoadCollections('ExpandingCards'),
     },
     {
+      path: 'FaqCollapse',
+      element: lazyLoadCollections('FaqCollapse'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
