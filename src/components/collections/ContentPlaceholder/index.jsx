@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import styles from './style.module.css';
+import styles from './style.module.scss';
 
 const ContentPlaceholder = () => {
   const [loading, setLoading] = useState(true);

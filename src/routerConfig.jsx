@@ -50,6 +50,10 @@ export const config = {
       element: lazyLoadCollections('ContentPlaceholder/index'),
     },
     {
+      path: 'CustomRangeSlider',
+      element: lazyLoadCollections('CustomRangeSlider/index'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
