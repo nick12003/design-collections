@@ -70,6 +70,10 @@ export const config = {
       element: lazyLoadCollections('DrawingApp'),
     },
     {
+      path: 'DrinkWater',
+      element: lazyLoadCollections('DrinkWater'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
