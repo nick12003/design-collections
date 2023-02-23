@@ -106,6 +106,10 @@ export const config = {
       element: lazyLoadCollections('HiddenSearchWidget'),
     },
     {
+      path: 'Hoverboard',
+      element: lazyLoadCollections('Hoverboard'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
