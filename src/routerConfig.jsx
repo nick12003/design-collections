@@ -114,6 +114,10 @@ export const config = {
       element: lazyLoadCollections('ImageCarousel'),
     },
     {
+      path: 'IncrementingCounter',
+      element: lazyLoadCollections('IncrementingCounter'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
