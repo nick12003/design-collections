@@ -118,6 +118,10 @@ export const config = {
       element: lazyLoadCollections('IncrementingCounter'),
     },
     {
+      path: 'InsectCatchGame',
+      element: lazyLoadCollections('InsectCatchGame'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
