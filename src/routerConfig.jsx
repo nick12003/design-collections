@@ -86,6 +86,10 @@ export const config = {
       element: lazyLoadCollections('FaqCollapse'),
     },
     {
+      path: 'FeedbackUiDesign',
+      element: lazyLoadCollections('FeedbackUiDesign'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
