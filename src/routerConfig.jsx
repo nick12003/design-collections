@@ -62,6 +62,10 @@ export const config = {
       element: lazyLoadCollections('DoubleClickHeart'),
     },
     {
+      path: 'DragNDrop',
+      element: lazyLoadCollections('DragNDrop'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
