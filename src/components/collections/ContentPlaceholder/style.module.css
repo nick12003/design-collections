@@ -1,0 +1,23 @@
+.bgAnimated {
+  background-image: linear-gradient(to right,
+      #f6f7f8 0%,
+      #edeef1 10%,
+      #f6f7f8 20%,
+      #f6f7f8 100%);
+  background-size: 200% 100%;
+  animation: bgPos 1s linear infinite;
+}
+
+@keyframes bgPos {
+  0% {
+    background-position: 50% 0;
+  }
+
+  100% {
+  background-position: -150% 0;
+  }
+}
+
+.txtAnimated{
+  @apply rounded-[50px] inline-block m-0 h-[10px] w-[100%]
+}

@@ -5,7 +5,7 @@ import Layout from './components/Layout';
 import Home from './components/Home';
 
 const lazyLoadCollections = (projectName) => {
-  const LazyElement = lazy(() => import(`./components/collections/${projectName}.jsx`));
+  const LazyElement = lazy(() => import(`./components/collections/${projectName}`));
   return (
     <Suspense fallback="Loading...">
       <LazyElement />
@@ -44,6 +44,10 @@ export const config = {
     {
       path: 'ButtonRippleEffect',
       element: lazyLoadCollections('ButtonRippleEffect'),
+    },
+    {
+      path: 'ContentPlaceholder',
+      element: lazyLoadCollections('ContentPlaceholder/index'),
     },
     {
       path: '*',

@@ -17,7 +17,7 @@ const myUtilities = plugin(function ({ addUtilities }) {
 });
 
 module.exports = {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx,css,scss}'],
   theme: {
     extend: {
       keyframes: {
