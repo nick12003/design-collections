@@ -78,6 +78,10 @@ export const config = {
       element: lazyLoadCollections('EventKeyCodes'),
     },
     {
+      path: 'ExpandingCards',
+      element: lazyLoadCollections('ExpandingCards'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
