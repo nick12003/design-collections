@@ -11,10 +11,13 @@ const Menu = ({ isMenuOpen, closeMenu }) => {
   const location = useLocation();
   return (
     <div
-      className={classNames('bg-slate-800 min-w-[300px] w-3/12 min-h-screen fixed z-10', {
-        'animate-ShowMenu': isMenuOpen,
-        'animate-HideMenu': !isMenuOpen,
-      })}
+      className={classNames(
+        'bg-slate-800 min-w-[300px] h-[calc(100vh-64px)] w-3/12 fixed z-10 overflow-y-auto overscroll-y-none scrollbar-hide scrollbar-hide',
+        {
+          'animate-ShowMenu': isMenuOpen,
+          'animate-HideMenu': !isMenuOpen,
+        }
+      )}
     >
       {config.children
         .filter(({ index, path }) => !index && path !== '*')

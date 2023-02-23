@@ -13,6 +13,18 @@ const myUtilities = plugin(function ({ addUtilities }) {
     '.-rotate-y-50%': {
       transform: 'rotateY(-50%)',
     },
+    '.scrollbar-hide': {
+      /* IE and Edge */
+      '-ms-overflow-style': 'none',
+
+      /* Firefox */
+      'scrollbar-width': 'none',
+
+      /* Safari and Chrome */
+      '&::-webkit-scrollbar': {
+        display: 'none',
+      },
+    },
   });
 });
 
