@@ -47,15 +47,19 @@ export const config = {
     },
     {
       path: 'ContentPlaceholder',
-      element: lazyLoadCollections('ContentPlaceholder/index'),
+      element: lazyLoadCollections('ContentPlaceholder'),
     },
     {
       path: 'CustomRangeSlider',
-      element: lazyLoadCollections('CustomRangeSlider/index'),
+      element: lazyLoadCollections('CustomRangeSlider'),
     },
     {
       path: 'DadJokes',
-      element: lazyLoadCollections('DadJokes/index'),
+      element: lazyLoadCollections('DadJokes'),
+    },
+    {
+      path: 'DoubleClickHeart',
+      element: lazyLoadCollections('DoubleClickHeart'),
     },
     {
       path: '*',
