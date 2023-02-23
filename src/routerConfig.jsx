@@ -110,6 +110,10 @@ export const config = {
       element: lazyLoadCollections('Hoverboard'),
     },
     {
+      path: 'ImageCarousel',
+      element: lazyLoadCollections('ImageCarousel'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },

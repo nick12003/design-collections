@@ -8,10 +8,6 @@ const getRandomColor = () => {
   return colors[Math.floor(Math.random() * colors.length)];
 };
 
-/**
- * 待處理: 光點未消除
- */
-
 const Hoverboard = () => {
   const [squares, setSquares] = useState(Array(500).fill());
   return (
