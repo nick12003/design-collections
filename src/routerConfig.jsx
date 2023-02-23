@@ -74,6 +74,10 @@ export const config = {
       element: lazyLoadCollections('DrinkWater'),
     },
     {
+      path: 'EventKeyCodes',
+      element: lazyLoadCollections('EventKeyCodes'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
