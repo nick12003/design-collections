@@ -177,7 +177,10 @@ export const config = {
       path: 'RandomChoicePicker',
       element: lazyLoadCollections('RandomChoicePicker'),
     },
-
+    {
+      path: 'RotatingNavigationAnimation',
+      element: lazyLoadCollections('RotatingNavigationAnimation'),
+    },
     {
       path: '*',
       element: 'noMatch',
