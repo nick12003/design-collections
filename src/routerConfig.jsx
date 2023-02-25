@@ -134,6 +134,10 @@ export const config = {
       element: lazyLoadCollections('MobileTabNavigation'),
     },
     {
+      path: 'MovieApp',
+      element: lazyLoadCollections('MovieApp'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
