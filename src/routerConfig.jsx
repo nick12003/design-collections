@@ -162,6 +162,10 @@ export const config = {
       element: lazyLoadCollections('Pokedex'),
     },
     {
+      path: 'ProgressSteps',
+      element: lazyLoadCollections('ProgressSteps'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
