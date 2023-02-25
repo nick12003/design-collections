@@ -126,6 +126,10 @@ export const config = {
       element: lazyLoadCollections('KineticLoader'),
     },
     {
+      path: 'LiveUserFilter',
+      element: lazyLoadCollections('LiveUserFilter'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
