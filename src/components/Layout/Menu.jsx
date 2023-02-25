@@ -12,7 +12,7 @@ const Menu = ({ isMenuOpen, closeMenu }) => {
   return (
     <div
       className={classNames(
-        'bg-slate-800 min-w-[300px] h-[calc(100vh-64px)] w-3/12 fixed z-10 overflow-y-auto overscroll-y-none scrollbar-hide scrollbar-hide',
+        'bg-slate-800 min-w-[300px] h-[calc(100vh-64px)] w-3/12 fixed z-10 overflow-y-auto overscroll-y-none scrollbar-hide',
         {
           'animate-ShowMenu': isMenuOpen,
           'animate-HideMenu': !isMenuOpen,

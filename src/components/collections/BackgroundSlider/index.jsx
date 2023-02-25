@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import classNames from 'classnames';
 
+import styles from './style.module.scss';
+
 const getImgPath = (key, size) => {
   return `https://images.unsplash.com/photo-${key}?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=${size}&q=80`;
 };
@@ -20,25 +22,19 @@ const BackgroundSlider = () => {
   const [img, setImg] = useState(0);
   return (
     <div
-      className="h-full relative flex items-center justify-center bg-center bg-cover duration-500 before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-black/70 z-0 "
+      className={styles.BackgroundSlider}
       style={{ backgroundImage: `url('${getImgPath(imgArray[img].key, imgArray[img].size)}')` }}
     >
-      <div className="h-[70%] w-[70%] relative overflow-hidden">
-        {imgArray.map(({ key, size }, i) => {
-          console.log(img, i);
-          return (
-            <div
-              key={i}
-              className={classNames(
-                'opacity-0 h-[140%] w-[140%] bg-center bg-cover duration-500 ease-in z-[1] absolute top-[-15%] left-[-15%]',
-                { 'opacity-100': i === img }
-              )}
-              style={{ backgroundImage: `url('${getImgPath(key, size)}')` }}
-            ></div>
-          );
-        })}
+      <div className={styles['slider-container']}>
+        {imgArray.map(({ key, size }, i) => (
+          <div
+            key={i}
+            className={classNames(styles.slide, { [styles.active]: i === img })}
+            style={{ backgroundImage: `url('${getImgPath(key, size)}')` }}
+          ></div>
+        ))}
         <button
-          className="fixed bg-transparent text-white p-[20px] text-3xl border-2 border-solid border-orange-300 top-1/2 -rotate-y-50% cursor-pointer left-[calc(15vw-65px)]"
+          className={classNames(styles.arrow, styles.left)}
           onClick={() => {
             setImg(img - 1 < 0 ? imgArray.length - 1 : img - 1);
           }}
@@ -47,7 +43,7 @@ const BackgroundSlider = () => {
         </button>
 
         <button
-          className="fixed bg-transparent text-white p-[20px] text-3xl border-2 border-solid border-orange-300 top-1/2 -rotate-y-50% cursor-pointer right-[calc(15vw-65px)]"
+          className={classNames(styles.arrow, styles.right)}
           onClick={() => {
             setImg(img + 1 > imgArray.length - 1 ? 0 : img + 1);
           }}
