@@ -158,6 +158,10 @@ export const config = {
       element: lazyLoadCollections('PasswordStrengthBackground'),
     },
     {
+      path: 'Pokedex',
+      element: lazyLoadCollections('Pokedex'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
