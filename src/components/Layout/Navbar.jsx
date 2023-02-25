@@ -7,7 +7,7 @@ const Navbar = ({ isMenuOpen, openMenu, closeMenu }) => {
   return (
     <nav className="sticky top-0 z-10 py-3 bg-slate-800">
       <div className="mx-auto max-w-full px-4 sm:px-6">
-        <div className="flex items-center justify-between text-4xl text-white">
+        <div className="flex items-center justify-between text-xl md:text-4xl text-white">
           <Link
             to="/"
             className="hover:scale-125 transition duration-300 ease-out"
@@ -15,7 +15,7 @@ const Navbar = ({ isMenuOpen, openMenu, closeMenu }) => {
           >
             <ImHome />
           </Link>
-          <div>{location.pathname.substring(1) || 'Home'}</div>
+          <div className=" ">{location.pathname.substring(1) || 'Home'}</div>
           <div
             className="cursor-pointer hover:scale-125 transition duration-300 ease-out"
             onClick={() => (isMenuOpen ? closeMenu() : openMenu())}
