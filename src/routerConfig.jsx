@@ -118,6 +118,10 @@ export const config = {
       element: lazyLoadCollections('IncrementingCounter'),
     },
     {
+      path: 'InfiniteScrolling',
+      element: lazyLoadCollections('InfiniteScrolling'),
+    },
+    {
       path: 'InsectCatchGame',
       element: lazyLoadCollections('InsectCatchGame'),
     },
@@ -173,6 +177,7 @@ export const config = {
       path: 'RandomChoicePicker',
       element: lazyLoadCollections('RandomChoicePicker'),
     },
+
     {
       path: '*',
       element: 'noMatch',
