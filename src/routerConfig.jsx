@@ -166,6 +166,10 @@ export const config = {
       element: lazyLoadCollections('ProgressSteps'),
     },
     {
+      path: 'QuizApp',
+      element: lazyLoadCollections('QuizApp'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
