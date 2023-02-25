@@ -14,10 +14,6 @@ const imgArray = [
   { key: '1559087867-ce4c91325525', size: '2100' },
 ];
 
-/**
- * 待處理: 聚焦與背後背景圖沒有對齊
- */
-
 const BackgroundSlider = () => {
   const [img, setImg] = useState(0);
   return (
