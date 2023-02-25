@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import styles from './style.module.scss';
+
 const DadJokes = () => {
   const [joke, setJoke] = useState('Joke goes here');
 
@@ -20,15 +22,15 @@ const DadJokes = () => {
   }, []);
 
   return (
-    <div className="h-full bg-[#686de0] flex flex-col items-center justify-center p-5">
-      <div className=" bg-white rounded-xl shadow-[0_10px_20px_rgba(0,0,0,0.1)] py-[20px] px-[50px] text-center w-[800px] max-w-full">
-        <h3 className="m-0 opacity-60 tracking-[2px] font-black">Don't Laugh Challenge</h3>
-        <div className=" text-3xl tracking-1 leading-[40px] mx-auto my-[50px] max-w-[600px]">
-          {joke}
-        </div>
+    <div className={styles.DadJokes}>
+      <div className={styles.container}>
+        <h3>Don't Laugh Challenge</h3>
+        <div className={styles.joke}>{joke}</div>
         <button
-          className="bg-[#9f68e0] text-white border-0 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.5)] py-[14px] px-[40px] cursor-pointer active:scale-95"
-          onClick={generateJoke}
+          className={styles.btn}
+          onClick={() => {
+            generateJoke();
+          }}
         >
           Get Another Joke
         </button>
