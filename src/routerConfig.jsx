@@ -170,6 +170,10 @@ export const config = {
       element: lazyLoadCollections('QuizApp'),
     },
     {
+      path: 'RandomChoicePicker',
+      element: lazyLoadCollections('RandomChoicePicker'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
