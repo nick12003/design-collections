@@ -28,13 +28,15 @@ const DragNDrop = () => {
                 setDragIn(null);
               }}
               onDrop={(e) => {
+                setDrag(false);
+                setDragIn(null);
                 setContainer(i);
               }}
             >
               {i === container ? (
                 <div
                   className={classNames(styles.fill, { [styles['hold']]: drag })}
-                  draggable="true"
+                  draggable
                   onDragStart={(e) => {
                     setDrag(true);
                   }}
@@ -44,7 +46,7 @@ const DragNDrop = () => {
                   }}
                 ></div>
               ) : (
-                ''
+                <></>
               )}
             </div>
           );
