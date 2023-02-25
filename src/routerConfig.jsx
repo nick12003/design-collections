@@ -154,6 +154,10 @@ export const config = {
       element: lazyLoadCollections('PasswordGenerator'),
     },
     {
+      path: 'PasswordStrengthBackground',
+      element: lazyLoadCollections('PasswordStrengthBackground'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
