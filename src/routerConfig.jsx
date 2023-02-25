@@ -130,6 +130,10 @@ export const config = {
       element: lazyLoadCollections('LiveUserFilter'),
     },
     {
+      path: 'MobileTabNavigation',
+      element: lazyLoadCollections('MobileTabNavigation'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
