@@ -146,6 +146,10 @@ export const config = {
       element: lazyLoadCollections('MovieSeatBooking'),
     },
     {
+      path: 'NotesApp',
+      element: lazyLoadCollections('NotesApp'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },

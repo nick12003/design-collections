@@ -1,0 +1,93 @@
+.NotesApp {
+  background-color: #7bdaf3;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  overflow: hidden auto;
+  & * {
+    outline: none;
+  }
+
+  &::-webkit-scrollbar,
+  .note::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.add {
+  position: fixed;
+  top: calc(1rem + 80px);
+  right: 1rem;
+  background-color: #9ec862;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.note {
+  background-color: #fff;
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+  margin: 30px 20px;
+  height: 400px;
+  width: 400px;
+  position: relative;
+  & .tools {
+    background-color: #9ec862;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem;
+    &.edit {
+      display: none;
+    }
+    & button {
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-left: 0.5rem;
+    }
+  }
+
+  & textarea {
+    outline: none;
+    font-family: inherit;
+    font-size: 1.2rem;
+    border: none;
+    height: 400px;
+    width: 100%;
+    padding: 20px;
+    resize: none;
+  }
+
+  .done {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 2px;
+    color: #9ec862;
+    & button {
+      background-color: transparent;
+      border: none;
+      font-size: 1rem;
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.main {
+  padding: 20px;
+  p {
+    white-space: pre-wrap;
+  }
+}
+
+.hidden {
+  display: none;
+}
