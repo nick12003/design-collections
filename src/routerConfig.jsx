@@ -138,6 +138,10 @@ export const config = {
       element: lazyLoadCollections('MovieApp'),
     },
     {
+      path: 'MovieSeatBooking',
+      element: lazyLoadCollections('MovieSeatBooking'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
