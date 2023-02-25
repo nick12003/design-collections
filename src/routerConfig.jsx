@@ -122,6 +122,10 @@ export const config = {
       element: lazyLoadCollections('InsectCatchGame'),
     },
     {
+      path: 'KineticLoader',
+      element: lazyLoadCollections('KineticLoader'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
