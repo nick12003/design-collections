@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames';
+
 import styles from './style.module.scss';
 
 const ContentPlaceholder = () => {
@@ -11,72 +12,49 @@ const ContentPlaceholder = () => {
   }, []);
 
   return (
-    <div className="h-full flex items-center justify-center bg-[#ecf0f1] font-sans">
-      <div className="shadow-[0_2px_10px_rgba(0,0,0,0.2)] rounded-[10px] w-[350px] overflow-hidden">
+    <div className={styles.ContentPlaceholder}>
+      <div className={styles.card}>
         {loading ? (
           <>
-            <div className={classNames('h-[200px]', styles.bgAnimated)}></div>
-            <div className="bg-white p-[30px]">
+            <div className={classNames(styles['card-header'], styles.bgAnimated)}></div>
+            <div className={styles['card-content']}>
               <h3
-                className={classNames(
-                  'text-lg font-black h-[20px] m-0 animated-bg',
-                  styles.bgAnimated,
-                  styles.txtAnimated
-                )}
+                className={classNames(styles['card-title'], styles.bgAnimated, styles.txtAnimated)}
               ></h3>
-              <p className="text-[#777] mt-[10px] mb-[20px] mx-0" id="excerpt">
+              <p className={styles['card-excerpt']}>
                 <span className={classNames(styles.bgAnimated, styles.txtAnimated)}></span>
                 <span className={classNames(styles.bgAnimated, styles.txtAnimated)}></span>
                 <span className={classNames(styles.bgAnimated, styles.txtAnimated)}></span>
               </p>
-              <div className="flex">
-                <div
-                  className={classNames(
-                    'rounded-[50%] overflow-hidden h-[40px] w-[40px] animated-bg',
-                    styles.bgAnimated,
-                    styles.txtAnimated
-                  )}
-                ></div>
-                <div className="flex flex-col justify-around ml-[10px] w-[100px]">
-                  <strong
-                    className={classNames(
-                      'animated-bg animated-bg-text',
-                      styles.bgAnimated,
-                      styles.txtAnimated
-                    )}
-                  ></strong>
-                  <small
-                    className={classNames(
-                      'text-[#aaa] mt-[5px] animated-bg animated-bg-text',
-                      styles.bgAnimated,
-                      styles.txtAnimated
-                    )}
-                  ></small>
+              <div className={styles.author}>
+                <div className={classNames(styles['profile-img'], styles.bgAnimated)}></div>
+                <div className={styles['author-info']}>
+                  <strong className={classNames(styles.bgAnimated, styles.txtAnimated)}></strong>
+                  <small className={classNames(styles.bgAnimated, styles.txtAnimated)}></small>
                 </div>
               </div>
             </div>
           </>
         ) : (
           <>
-            <div className="h-[200px]">
+            <div className={styles['card-header']}>
               <img
-                className="object-cover h-full w-full"
                 src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80"
                 alt=""
               />
             </div>
-            <div className="bg-white p-[30px]">
-              <h3 className="text-lg font-black h-[20px] m-0">Lorem ipsum dolor sit amet</h3>
-              <p className="text-[#777] mt-[10px] mb-[20px] mx-0">
+            <div className={styles['card-content']}>
+              <h3 className={styles['card-title']}>Lorem ipsum dolor sit amet</h3>
+              <p className={styles['card-excerpt']}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendis
               </p>
-              <div className="flex">
-                <div className="rounded-[50%] overflow-hidden h-[40px] w-[40px]">
+              <div className={styles.author}>
+                <div className={styles['profile-img']}>
                   <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="" />
                 </div>
-                <div className="flex flex-col justify-around ml-[10px] w-[100px]">
+                <div className={styles['author-info']}>
                   <strong>John Doe</strong>
-                  <small className="text-[#aaa] mt-[5px]">Oct 08, 2020</small>
+                  <small>Oct 08, 2020</small>
                 </div>
               </div>
             </div>
