@@ -15,7 +15,7 @@ const Layout = () => {
       <div>
         <Navbar {...{ isMenuOpen, openMenu, closeMenu }} />
         <Menu {...{ isMenuOpen, closeMenu }} />
-        <div className={`h-[calc(100vh-64px)]`}>
+        <div className={`h-[calc(100vh-52px)] md:h-[calc(100vh-64px)]`}>
           <Outlet />
         </div>
       </div>
