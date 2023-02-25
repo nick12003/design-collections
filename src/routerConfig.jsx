@@ -5,7 +5,7 @@ import Layout from './components/Layout';
 import Home from './components/Home';
 
 const lazyLoadCollections = (projectName) => {
-  const LazyElement = lazy(() => import(`./components/collections/${projectName}`));
+  const LazyElement = lazy(() => import(`./components/collections/${projectName}/index.jsx`));
   return (
     <Suspense fallback="Loading...">
       <LazyElement />
