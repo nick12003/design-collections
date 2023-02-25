@@ -150,6 +150,10 @@ export const config = {
       element: lazyLoadCollections('NotesApp'),
     },
     {
+      path: 'PasswordGenerator',
+      element: lazyLoadCollections('PasswordGenerator'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
