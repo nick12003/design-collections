@@ -206,6 +206,10 @@ export const config = {
       element: lazyLoadCollections('ThemeClock'),
     },
     {
+      path: 'ThreeDBackgroundBoxes',
+      element: lazyLoadCollections('ThreeDBackgroundBoxes'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
