@@ -3,11 +3,13 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import Layout from './components/Layout';
 import Home from './components/Home';
+import Loading from './components/Loading';
+import NotFount from './components/NotFount';
 
 const lazyLoadCollections = (projectName) => {
   const LazyElement = lazy(() => import(`./components/collections/${projectName}/index.jsx`));
   return (
-    <Suspense fallback="Loading...">
+    <Suspense fallback={<Loading />}>
       <LazyElement />
     </Suspense>
   );
@@ -227,7 +229,7 @@ export const config = {
     },
     {
       path: '*',
-      element: 'noMatch',
+      element: <NotFount />,
     },
   ],
 };

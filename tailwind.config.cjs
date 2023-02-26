@@ -16,6 +16,12 @@ const myUtilities = plugin(function ({ addUtilities }) {
         display: 'none',
       },
     },
+    '.animationDelay-100': {
+      'animation-delay': '0.1s',
+    },
+    '.animationDelay-200': {
+      'animation-delay': '0.2s',
+    },
   });
 });
 
@@ -40,12 +46,17 @@ module.exports = {
           '0%': { opacity: 1, 'z-index': 0 },
           '100%': { opacity: 0, 'z-index': 0 },
         },
+        Loading: {
+          '0%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
       },
       animation: {
         ShowMenu: 'ShowMenu 0.5s ease-in-out forwards',
         HideMenu: 'HideMenu 0.5s ease-in-out forwards',
         ShowMask: 'ShowMask 0.5s ease-in-out forwards',
         HideMask: 'HideMask 0.5s ease-in-out forwards',
+        Loading: 'Loading 0.5s ease-in-out infinite',
       },
     },
   },
