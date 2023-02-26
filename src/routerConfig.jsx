@@ -186,6 +186,10 @@ export const config = {
       element: lazyLoadCollections('ScrollAnimation'),
     },
     {
+      path: 'SoundBoard',
+      element: lazyLoadCollections('SoundBoard'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
