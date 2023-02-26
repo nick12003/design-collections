@@ -198,6 +198,10 @@ export const config = {
       element: lazyLoadCollections('StickyNavbar'),
     },
     {
+      path: 'TestimonialBoxSwitcher',
+      element: lazyLoadCollections('TestimonialBoxSwitcher'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
