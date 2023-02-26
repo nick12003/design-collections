@@ -32,10 +32,20 @@ module.exports = {
           '0%': { left: '0%' },
           '100%': { left: '-100%' },
         },
+        ShowMask: {
+          '0%': { opacity: 0, 'z-index': 40 },
+          '100%': { opacity: 1, 'z-index': 40 },
+        },
+        HideMask: {
+          '0%': { opacity: 1, 'z-index': 0 },
+          '100%': { opacity: 0, 'z-index': 0 },
+        },
       },
       animation: {
         ShowMenu: 'ShowMenu 0.5s ease-in-out forwards',
         HideMenu: 'HideMenu 0.5s ease-in-out forwards',
+        ShowMask: 'ShowMask 0.5s ease-in-out forwards',
+        HideMask: 'HideMask 0.5s ease-in-out forwards',
       },
     },
   },
