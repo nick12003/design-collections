@@ -218,6 +218,10 @@ export const config = {
       element: lazyLoadCollections('TodoList'),
     },
     {
+      path: 'VerifyAccountUi',
+      element: lazyLoadCollections('VerifyAccountUi'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
