@@ -1,21 +1,29 @@
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { config } from '../../routerConfig';
 
-/**
- * 待處理: 第一次render時menu會先出現再收合
- */
-
 const Menu = ({ isMenuOpen, closeMenu }) => {
+  const [isOpened, setIsOpened] = useState(false);
   const location = useLocation();
+
+  /**
+   * 設定為 true，代表開啟過menu，避免初次render就先跑一次關閉動畫
+   */
+  useEffect(() => {
+    if (isMenuOpen) {
+      setIsOpened(true);
+    }
+  }, [isMenuOpen]);
+
   return (
     <div
       className={classNames(
-        'bg-slate-800 min-w-[350px] h-[calc(100vh-52px)] md:h-[calc(100vh-64px)] w-full  md:w-3/12 fixed z-10 overflow-y-auto overscroll-y-none scrollbar-hide',
+        'bg-slate-800 min-w-[350px] h-[calc(100vh-52px)] md:h-[calc(100vh-64px)] w-full  md:w-3/12 fixed z-50 overflow-y-auto overscroll-y-none scrollbar-hide -left-full',
         {
-          'animate-ShowMenu': isMenuOpen,
-          'animate-HideMenu': !isMenuOpen,
+          'animate-ShowMenu': isOpened && isMenuOpen,
+          'animate-HideMenu': isOpened && !isMenuOpen,
         }
       )}
     >

@@ -23,7 +23,7 @@ const InfiniteScrolling = () => {
           ...preImgArray,
           ...Array(20)
             .fill()
-            .map((_, i) => ({ id: i, imageUrl: getRandomImgUrl() })),
+            .map((_, i) => ({ id: i + preImgArray.length, imageUrl: getRandomImgUrl() })),
         ]);
       }
     });

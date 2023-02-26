@@ -49,7 +49,6 @@ const Pokedex = () => {
 
   return (
     <div className={styles.Pokedex}>
-      <h1>Pokedex</h1>
       <div className={styles['poke-container']}>
         {pokemons.map(({ id, name, type, color }) => (
           <div key={id} className={styles.pokemon} style={{ backgroundColor: color }}>
