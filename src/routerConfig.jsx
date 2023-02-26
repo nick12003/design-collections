@@ -182,6 +182,10 @@ export const config = {
       element: lazyLoadCollections('RotatingNavigationAnimation'),
     },
     {
+      path: 'ScrollAnimation',
+      element: lazyLoadCollections('ScrollAnimation'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
