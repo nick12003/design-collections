@@ -194,6 +194,10 @@ export const config = {
       element: lazyLoadCollections('SplitLandingPage'),
     },
     {
+      path: 'StickyNavbar',
+      element: lazyLoadCollections('StickyNavbar'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
