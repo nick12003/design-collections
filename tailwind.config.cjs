@@ -4,15 +4,6 @@ const plugin = require('tailwindcss/plugin');
 
 const myUtilities = plugin(function ({ addUtilities }) {
   addUtilities({
-    '.rotate-y-0': {
-      transform: 'rotateY(0deg)',
-    },
-    '.rotate-y-360': {
-      transform: 'rotateY(360deg)',
-    },
-    '.-rotate-y-50%': {
-      transform: 'rotateY(-50%)',
-    },
     '.scrollbar-hide': {
       /* IE and Edge */
       '-ms-overflow-style': 'none',
@@ -24,6 +15,12 @@ const myUtilities = plugin(function ({ addUtilities }) {
       '&::-webkit-scrollbar': {
         display: 'none',
       },
+    },
+    '.animationDelay-100': {
+      'animation-delay': '0.1s',
+    },
+    '.animationDelay-200': {
+      'animation-delay': '0.2s',
     },
   });
 });
@@ -41,15 +38,25 @@ module.exports = {
           '0%': { left: '0%' },
           '100%': { left: '-100%' },
         },
-        ButtonRippleEffect_scale: {
-          '0%': { transform: 'translate(-50%, -50%) scale(0)', opacity: 1 },
-          '100%': { transform: 'translate(-50%, -50%) scale(3)', opacity: 0 },
+        ShowMask: {
+          '0%': { opacity: 0, 'z-index': 40 },
+          '100%': { opacity: 1, 'z-index': 40 },
+        },
+        HideMask: {
+          '0%': { opacity: 1, 'z-index': 0 },
+          '100%': { opacity: 0, 'z-index': 0 },
+        },
+        Loading: {
+          '0%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
         },
       },
       animation: {
         ShowMenu: 'ShowMenu 0.5s ease-in-out forwards',
         HideMenu: 'HideMenu 0.5s ease-in-out forwards',
-        ButtonRippleEffect_scale: 'ButtonRippleEffect_scale 0.5s ease-out',
+        ShowMask: 'ShowMask 0.5s ease-in-out forwards',
+        HideMask: 'HideMask 0.5s ease-in-out forwards',
+        Loading: 'Loading 0.5s ease-in-out infinite',
       },
     },
   },

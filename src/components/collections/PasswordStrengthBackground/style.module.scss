@@ -1,0 +1,76 @@
+.PasswordStrengthBackground {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+}
+
+.background {
+  background: url('https://images.unsplash.com/photo-1556745757-8d76bdb6984b') no-repeat center
+    center/cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  filter: blur(20px);
+}
+
+.container {
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+  padding: 2.5rem;
+  border-radius: 0.25rem;
+  background-color: #fff;
+}
+
+.title {
+  font-size: 1.875rem;
+}
+
+.title-sub {
+  color: #4a5568;
+  font-size: 0.875rem;
+}
+
+.box {
+  text-align: left;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.label {
+  --text-opacity: 1;
+  color: #1a202c;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  display: block;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  overflow: visible;
+  font-size: 100%;
+  border-style: solid;
+  border-color: #e2e8f0;
+}
+
+.button {
+  width: 100%;
+  color: #fff;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-top: 1rem;
+  display: inline-block;
+  border-radius: 0.25rem;
+  --bg-opacity: 1;
+  background-color: #000;
+  -webkit-appearance: button;
+  cursor: pointer;
+  background-image: none;
+  text-transform: none;
+  overflow: visible;
+  font-size: 100%;
+}

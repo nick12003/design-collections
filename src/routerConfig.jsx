@@ -3,11 +3,13 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import Layout from './components/Layout';
 import Home from './components/Home';
+import Loading from './components/Loading';
+import NotFount from './components/NotFount';
 
 const lazyLoadCollections = (projectName) => {
   const LazyElement = lazy(() => import(`./components/collections/${projectName}/index.jsx`));
   return (
-    <Suspense fallback="Loading...">
+    <Suspense fallback={<Loading />}>
       <LazyElement />
     </Suspense>
   );
@@ -60,6 +62,10 @@ export const config = {
     {
       path: 'DoubleClickHeart',
       element: lazyLoadCollections('DoubleClickHeart'),
+    },
+    {
+      path: 'DoubleVerticalSlider',
+      element: lazyLoadCollections('DoubleVerticalSlider'),
     },
     {
       path: 'DragNDrop',
@@ -118,6 +124,10 @@ export const config = {
       element: lazyLoadCollections('IncrementingCounter'),
     },
     {
+      path: 'InfiniteScrolling',
+      element: lazyLoadCollections('InfiniteScrolling'),
+    },
+    {
       path: 'InsectCatchGame',
       element: lazyLoadCollections('InsectCatchGame'),
     },
@@ -126,8 +136,100 @@ export const config = {
       element: lazyLoadCollections('KineticLoader'),
     },
     {
+      path: 'LiveUserFilter',
+      element: lazyLoadCollections('LiveUserFilter'),
+    },
+    {
+      path: 'MobileNavigation',
+      element: lazyLoadCollections('MobileNavigation'),
+    },
+    {
+      path: 'MobileTabNavigation',
+      element: lazyLoadCollections('MobileTabNavigation'),
+    },
+    {
+      path: 'MovieApp',
+      element: lazyLoadCollections('MovieApp'),
+    },
+    {
+      path: 'MovieSeatBooking',
+      element: lazyLoadCollections('MovieSeatBooking'),
+    },
+    {
+      path: 'NotesApp',
+      element: lazyLoadCollections('NotesApp'),
+    },
+    {
+      path: 'PasswordGenerator',
+      element: lazyLoadCollections('PasswordGenerator'),
+    },
+    {
+      path: 'PasswordStrengthBackground',
+      element: lazyLoadCollections('PasswordStrengthBackground'),
+    },
+    {
+      path: 'Pokedex',
+      element: lazyLoadCollections('Pokedex'),
+    },
+    {
+      path: 'ProgressSteps',
+      element: lazyLoadCollections('ProgressSteps'),
+    },
+    {
+      path: 'QuizApp',
+      element: lazyLoadCollections('QuizApp'),
+    },
+    {
+      path: 'RandomChoicePicker',
+      element: lazyLoadCollections('RandomChoicePicker'),
+    },
+    {
+      path: 'RotatingNavigationAnimation',
+      element: lazyLoadCollections('RotatingNavigationAnimation'),
+    },
+    {
+      path: 'ScrollAnimation',
+      element: lazyLoadCollections('ScrollAnimation'),
+    },
+    {
+      path: 'SoundBoard',
+      element: lazyLoadCollections('SoundBoard'),
+    },
+    {
+      path: 'SplitLandingPage',
+      element: lazyLoadCollections('SplitLandingPage'),
+    },
+    {
+      path: 'StickyNavbar',
+      element: lazyLoadCollections('StickyNavbar'),
+    },
+    {
+      path: 'TestimonialBoxSwitcher',
+      element: lazyLoadCollections('TestimonialBoxSwitcher'),
+    },
+    {
+      path: 'ThemeClock',
+      element: lazyLoadCollections('ThemeClock'),
+    },
+    {
+      path: 'ThreeDBackgroundBoxes',
+      element: lazyLoadCollections('ThreeDBackgroundBoxes'),
+    },
+    {
+      path: 'ToastNotification',
+      element: lazyLoadCollections('ToastNotification'),
+    },
+    {
+      path: 'TodoList',
+      element: lazyLoadCollections('TodoList'),
+    },
+    {
+      path: 'VerifyAccountUi',
+      element: lazyLoadCollections('VerifyAccountUi'),
+    },
+    {
       path: '*',
-      element: 'noMatch',
+      element: <NotFount />,
     },
   ],
 };

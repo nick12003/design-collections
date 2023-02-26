@@ -15,7 +15,7 @@ const Navbar = ({ isMenuOpen, openMenu, closeMenu }) => {
           >
             <ImHome />
           </Link>
-          <div className=" ">{location.pathname.substring(1) || 'Home'}</div>
+          <div>{location.pathname.substring(1) || 'Home'}</div>
           <div
             className="cursor-pointer hover:scale-125 transition duration-300 ease-out"
             onClick={() => (isMenuOpen ? closeMenu() : openMenu())}

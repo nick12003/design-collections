@@ -1,0 +1,110 @@
+$primary-color: #000;
+$secondary-color: #fff;
+
+.ThemeClock {
+  font-family: 'Heebo', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  transition: all 0.5s ease-in;
+  &.dark {
+    background-color: #111;
+    color: $secondary-color;
+    .toggle {
+      background-color: $secondary-color;
+      color: $primary-color;
+    }
+    .needle {
+      &.hour,
+      &.minute {
+        background-color: $secondary-color;
+      }
+    }
+    .center-point::after {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+.toggle {
+  cursor: pointer;
+  background-color: $primary-color;
+  color: $secondary-color;
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 100px;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.needle {
+  background-color: $primary-color;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 65px;
+  width: 3px;
+  transform-origin: bottom center;
+  transition: all 0.5s ease-in;
+  &.hour {
+    transform: translate(-50%, -100%) rotate(0deg);
+  }
+
+  &.minute {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 100px;
+  }
+
+  &.second {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 100px;
+    background-color: #e74c3c;
+  }
+}
+
+.center-point {
+  background-color: #e74c3c;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  &::after {
+    content: '';
+    background-color: $primary-color;
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+}
+
+.time {
+  font-size: 60px;
+}
+
+.date {
+  color: #aaa;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}

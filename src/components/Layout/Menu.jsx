@@ -1,27 +1,64 @@
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { FaSearch, FaTimes } from 'react-icons/fa';
 import classNames from 'classnames';
 
 import { config } from '../../routerConfig';
 
-/**
- * 待處理: 第一次render時menu會先出現再收合
- */
+const Menu = ({ isMenuOpen, isOpened, closeMenu }) => {
+  const [menuList, setMenuList] = useState([]);
+  const [searchText, setSearchText] = useState('');
 
-const Menu = ({ isMenuOpen, closeMenu }) => {
   const location = useLocation();
+
+  useEffect(() => {
+    setMenuList(
+      config?.children
+        .filter(({ index, path }) => !index && path !== '*')
+        .map((item, i) => ({ ...item, no: `${i + 1}` }))
+    );
+  }, []);
+
   return (
     <div
       className={classNames(
-        'bg-slate-800 min-w-[300px] h-[calc(100vh-52px)] md:h-[calc(100vh-64px)] w-full  md:w-3/12 fixed z-10 overflow-y-auto overscroll-y-none scrollbar-hide',
+        'bg-slate-800 min-w-[350px] h-[calc(100vh-52px)] md:h-[calc(100vh-64px)] w-full  md:w-3/12 fixed z-50 overflow-y-auto overscroll-y-none scrollbar-hide -left-full',
         {
-          'animate-ShowMenu': isMenuOpen,
-          'animate-HideMenu': !isMenuOpen,
+          'animate-ShowMenu': isOpened && isMenuOpen,
+          'animate-HideMenu': isOpened && !isMenuOpen,
         }
       )}
     >
-      {config.children
-        .filter(({ index, path }) => !index && path !== '*')
-        .map(({ path }, i) => (
+      <div className="w-full h-[80px] bg-slate-800 flex items-center justify-center sticky top-0 z-[51]">
+        <div className="h-[40px] w-[80%] flex items-center relative rounded-[6px] overflow-hidden shadow-xl">
+          <input
+            value={searchText}
+            type="text"
+            className="h-full w-full relative pl-[40px] pr-[40px] text-xl focus:outline-none"
+            placeholder="Search..."
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <div className="h-[40px] w-[40px] bg-transparent absolute left-0 flex items-center justify-center pointer-events-none">
+            <FaSearch className="w-[50%] h-[50%]" />
+          </div>
+          <div
+            className="h-[40px] w-[40px] bg-transparent absolute right-0 flex items-center justify-center cursor-pointer hover:scale-125 duration-200 "
+            onClick={() => {
+              setSearchText('');
+            }}
+          >
+            <FaTimes className="w-[50%] h-[50%] " />
+          </div>
+        </div>
+      </div>
+      {menuList
+        .filter(
+          ({ path, no }) =>
+            path.toUpperCase().includes(searchText.toUpperCase()) || no.includes(searchText)
+        )
+        .map(({ path, no }, i) => (
           <Link
             to={`/${path}`}
             onClick={closeMenu}
@@ -30,13 +67,14 @@ const Menu = ({ isMenuOpen, closeMenu }) => {
           >
             <div
               className={classNames(
-                'w-full p-4 hover:bg-[#f00946] hover:scale-125 transition origin-left duration-300 ease-out',
+                'w-full flex p-4 hover:bg-[#f00946] hover:scale-125 transition origin-left duration-300 ease-out',
                 {
                   'bg-[#f00946] scale-125': location.pathname.substring(1) === path,
                 }
               )}
             >
-              {`${i + 1}. ${path}`}
+              <div className="w-[30px]">{`${no}.`}</div>
+              <div>{path}</div>
             </div>
           </Link>
         ))}
