@@ -214,6 +214,10 @@ export const config = {
       element: lazyLoadCollections('ToastNotification'),
     },
     {
+      path: 'TodoList',
+      element: lazyLoadCollections('TodoList'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
