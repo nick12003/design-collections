@@ -202,6 +202,10 @@ export const config = {
       element: lazyLoadCollections('TestimonialBoxSwitcher'),
     },
     {
+      path: 'ThemeClock',
+      element: lazyLoadCollections('ThemeClock'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
