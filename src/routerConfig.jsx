@@ -190,6 +190,10 @@ export const config = {
       element: lazyLoadCollections('SoundBoard'),
     },
     {
+      path: 'SplitLandingPage',
+      element: lazyLoadCollections('SplitLandingPage'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
