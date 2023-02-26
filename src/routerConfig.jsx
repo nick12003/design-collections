@@ -210,6 +210,10 @@ export const config = {
       element: lazyLoadCollections('ThreeDBackgroundBoxes'),
     },
     {
+      path: 'ToastNotification',
+      element: lazyLoadCollections('ToastNotification'),
+    },
+    {
       path: '*',
       element: 'noMatch',
     },
