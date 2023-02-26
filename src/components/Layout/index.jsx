@@ -36,7 +36,7 @@ const Layout = () => {
           )}
           onClick={closeMenu}
         />
-        <div className={`h-[calc(100vh-52px)] md:h-[calc(100vh-64px)]`}>
+        <div className={`h-[calc(100vh-52px)] md:h-[calc(100vh-64px)] relative`}>
           <Outlet />
         </div>
       </div>
