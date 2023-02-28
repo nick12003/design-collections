@@ -26,21 +26,23 @@ const Pokedex = () => {
   const [pokemons, setPokemons] = useState([]);
 
   const fetchPokemons = async () => {
-    let data = [];
     for (let i = 1; i <= 150; i++) {
       const res = await fetch(API_URL + i);
       const { name, id, types } = await res.json();
-      let poke_types = types.map((type) => type.type.name);
-      let type = main_types.find((type) => poke_types.indexOf(type) > -1);
-      data.push({
-        name: name[0].toUpperCase() + name.slice(1),
-        orgId: id,
-        id: id.toString().padStart(3, '0'),
-        type: type,
-        color: colors[type],
-      });
+      const type = main_types.find(
+        (type) => types.map((type) => type.type.name).indexOf(type) > -1
+      );
+      setPokemons((preList) => [
+        ...preList,
+        {
+          name: name[0].toUpperCase() + name.slice(1),
+          orgId: id,
+          id: id.toString().padStart(3, '0'),
+          type: type,
+          color: colors[type],
+        },
+      ]);
     }
-    setPokemons(data);
   };
 
   useEffect(() => {
