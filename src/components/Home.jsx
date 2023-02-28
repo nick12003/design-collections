@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <div className="flex flex-wrap items-center justify-center">
       <div className="w-full bg-slate-200 flex flex-wrap items-center justify-center">
-        <Section className="h-[80vh] md:bg-[url('public/HomeBackgroundKnockout.png')] bg-no-repeat bg-contain bg-right flex items-center justify-center md:justify-start">
+        <Section className="h-[80vh] md:bg-[url('/HomeBackgroundKnockout.png')] bg-no-repeat bg-contain bg-right flex items-center justify-center md:justify-start">
           <div>
             <h1 className="text-6xl lg:text-8xl">
               <span className="text-4xl lg:text-6xl">Hello, I am</span>
@@ -51,7 +51,7 @@ const Home = () => {
           About Me
         </h1>
         <div className="w-full flex flex-col md:flex-row mt-8">
-          <div className="w-full min-h-[450px] bg-[url('public/ShinyStar.png')] bg-no-repeat bg-contain bg-center" />
+          <div className="w-full min-h-[450px] bg-[url('/ShinyStar.png')] bg-no-repeat bg-contain bg-center" />
           <div className="w-full flex flex-col p-10">
             <h3 className="text-3xl font-bold">我是誰?</h3>
             <p className="text-gray-600 mt-3">
