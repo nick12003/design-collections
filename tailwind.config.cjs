@@ -29,6 +29,10 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx,css,scss}'],
   theme: {
     extend: {
+      colors: {
+        primary: '#8b58ff',
+        'primary-light': '#b08ffb',
+      },
       keyframes: {
         ShowMenu: {
           '0%': { left: '-100%' },

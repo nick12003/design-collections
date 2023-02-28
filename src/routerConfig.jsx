@@ -6,11 +6,18 @@ import Home from './components/Home';
 import Loading from './components/Loading';
 import NotFount from './components/NotFount';
 
+const DocumentTitle = ({ children, title }) => {
+  document.title = title;
+  return <>{children}</>;
+};
+
 const lazyLoadCollections = (projectName) => {
   const LazyElement = lazy(() => import(`./components/collections/${projectName}/index.jsx`));
   return (
     <Suspense fallback={<Loading />}>
-      <LazyElement />
+      <DocumentTitle title={projectName}>
+        <LazyElement />
+      </DocumentTitle>
     </Suspense>
   );
 };
@@ -21,7 +28,11 @@ export const config = {
   children: [
     {
       index: true,
-      element: <Home />,
+      element: (
+        <DocumentTitle title="design-collections">
+          <Home />
+        </DocumentTitle>
+      ),
     },
     {
       path: 'AnimatedCountdown',

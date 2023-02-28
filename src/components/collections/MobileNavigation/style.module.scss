@@ -8,6 +8,18 @@
   position: relative;
 }
 
+.phone {
+  width: 500px;
+  height: 80%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  border: solid 1px black;
+}
+
 .text {
   text-transform: uppercase;
 }
@@ -33,7 +45,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: calc(100vh - 80px);
+  height: 100%;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
   &.visible {
