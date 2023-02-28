@@ -5,23 +5,24 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 const Navbar = ({ isMenuOpen, openMenu, closeMenu }) => {
   const location = useLocation();
   return (
-    <nav className="sticky top-0 z-10 py-3 bg-slate-800">
-      <div className="mx-auto max-w-full px-4 sm:px-6">
-        <div className="flex items-center justify-between text-xl md:text-4xl text-white">
+    <nav className="sticky top-0 z-10 py-3 h-[52px] md:h-[64px] border-b border-slate-900/10 backdrop-blur flex items-center">
+      <div className="mx-auto w-full max-w-[1280px] px-4 md:px-6">
+        <div className="flex items-center justify-between md:justify-center text-xl md:text-4xl relative">
           <Link
             to="/"
-            className="hover:scale-125 transition duration-300 ease-out"
+            className="hover:scale-125 transition duration-300 ease-out flex items-center justify-between md:absolute md:left-[1.5rem] text-primary"
             onClick={closeMenu}
           >
-            <ImHome />
+            <span className="hidden lg:block">Nick Chen</span>
+            <ImHome className="block lg:hidden" />
           </Link>
-          <div>{location.pathname.substring(1) || 'Home'}</div>
-          <div
-            className="cursor-pointer hover:scale-125 transition duration-300 ease-out"
+          <div>{location.pathname.substring(1)}</div>
+          <button
+            className="hover:scale-125 transition duration-300 ease-out md:absolute md:right-[1.5rem] text-primary"
             onClick={() => (isMenuOpen ? closeMenu() : openMenu())}
           >
             {isMenuOpen ? <FaTimes /> : <FaBars />}
-          </div>
+          </button>
         </div>
       </div>
     </nav>

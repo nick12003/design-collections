@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
 import Navbar from './Navbar';
 import Menu from './Menu';
+import Footer from './Footer';
 
 const Layout = () => {
   const [isOpened, setIsOpened] = useState(false);
   const [isMenuOpen, setMenuState] = useState(false);
 
+  const location = useLocation();
   /**
    * 設定為 true，代表開啟過menu，避免初次render就先跑一次關閉動畫
    */
@@ -22,13 +24,13 @@ const Layout = () => {
   const closeMenu = () => setMenuState(false);
 
   return (
-    <div className="flex min-h-screen w-full flex-col justify-between relative">
-      <div>
+    <div className="flex h-screen w-full flex-col justify-between relative">
+      <div className="h-full overflow-y-auto scrollbar-hide scroll-smooth">
         <Navbar {...{ isMenuOpen, openMenu, closeMenu }} />
         <Menu {...{ isMenuOpen, isOpened, closeMenu }} />
         <div
           className={classNames(
-            'h-[calc(100vh-52px)] md:h-[calc(100vh-64px)] w-full absolute bg-black/60 opacity-0',
+            'h-[calc(100vh-122px)] md:h-[calc(100vh-64px)] w-full absolute bg-black/60 opacity-0',
             {
               'animate-ShowMask': isOpened && isMenuOpen,
               'animate-HideMask': isOpened && !isMenuOpen,
@@ -36,9 +38,14 @@ const Layout = () => {
           )}
           onClick={closeMenu}
         />
-        <div className={`h-[calc(100vh-52px)] md:h-[calc(100vh-64px)] relative`}>
+        <div
+          className={classNames('relative', {
+            'h-[calc(100vh-122px)] md:h-[calc(100vh-164px)]': location.pathname !== '/',
+          })}
+        >
           <Outlet />
         </div>
+        <Footer />
       </div>
     </div>
   );
