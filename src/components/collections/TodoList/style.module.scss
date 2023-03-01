@@ -12,16 +12,19 @@
     font-size: 10rem;
     text-align: center;
     opacity: 0.4;
-    @media (max-width: 768px) {
-      & {
-        font-size: 5rem;
-      }
-    }
   }
   small {
     color: #b5b5b5;
     margin-top: 3rem;
     text-align: center;
+  }
+  @media (max-width: 1024px) {
+    h1 {
+      font-size: 3rem;
+    }
+    small {
+      margin-top: 1rem;
+    }
   }
 }
 
@@ -45,6 +48,11 @@
   &:focus {
     outline-color: rgb(179, 131, 226);
   }
+  @media (max-width: 1024px) {
+    & {
+      padding: 0.5rem 1rem;
+    }
+  }
 }
 
 .todo-list {
@@ -65,6 +73,11 @@
     &.completed {
       color: #b6b6b6;
       text-decoration: line-through;
+    }
+  }
+  @media (max-width: 1024px) {
+    & {
+      max-height: 200px;
     }
   }
 }

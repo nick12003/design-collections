@@ -1,12 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classNames from 'classnames';
 
 import styles from './style.module.scss';
 
 const boxes = Array(4).fill(Array(4).fill());
 
+const getWidth = () => {
+  if (window.innerWidth > 1280) return 125;
+  return 60;
+};
+
+const useWidth = () => {
+  const [width, setWidth] = useState(getWidth());
+  const handleRWD = () => {
+    setWidth(getWidth());
+  };
+  useEffect(() => {
+    window.addEventListener('resize', handleRWD);
+    handleRWD();
+    return () => {
+      window.removeEventListener('resize', handleRWD);
+    };
+  }, []);
+  return width;
+};
+
 const ThreeDBackgroundBoxes = () => {
   const [active, setActive] = useState(false);
+  const width = useWidth();
   return (
     <div className={styles.ThreeDBackgroundBoxes}>
       <button
@@ -24,7 +45,7 @@ const ThreeDBackgroundBoxes = () => {
               <div
                 key={j}
                 className={styles.box}
-                style={{ backgroundPosition: `${-j * 125}px ${-i * 125}px` }}
+                style={{ backgroundPosition: `${-j * width}px ${-i * width}px` }}
               />
             ))}
           </div>

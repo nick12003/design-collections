@@ -38,11 +38,12 @@ const timeFormat = (sec) => {
   return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
 };
 
-const getRandomLocation = () => {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-  const x = Math.random() * (width - 200);
-  const y = Math.random() * (height - 200);
+const getRandomLocation = (areaDom) => {
+  const { width, height } = areaDom.getBoundingClientRect();
+
+  const x = Math.random() * (width - 100) + 50;
+  const y = Math.random() * (height - 100) + 50;
+
   return { x, y };
 };
 
@@ -54,8 +55,13 @@ const InsectCatchGame = () => {
   const [score, setScore] = useState(0);
   const second = useTimer(insect ? true : false);
 
+  const container = useRef();
+  const gameArea = useRef();
+
   const createInsect = () => {
-    setInsects((preList) => preList.concat(getRandomLocation()));
+    setInsects((preList) =>
+      preList.concat(getRandomLocation(gameArea.current), getRandomLocation(gameArea.current))
+    );
   };
 
   const deleteInsect = (index) => {
@@ -68,16 +74,15 @@ const InsectCatchGame = () => {
 
     setTimeout(() => {
       createInsect();
-    }, 1500);
-
-    setTimeout(() => {
-      createInsect();
-    }, 2000);
+    }, 500);
   };
 
   return (
-    <div className={styles.InsectCatchGame}>
-      <div className={classNames(styles.screen, { [styles.up]: start })}>
+    <div className={styles.InsectCatchGame} ref={container}>
+      <div
+        className={styles.screen}
+        style={{ marginTop: start ? -container.current.clientHeight : 0 }}
+      >
         <h1>Catch The Insect</h1>
         <button
           className={styles.btn}
@@ -89,7 +94,10 @@ const InsectCatchGame = () => {
         </button>
       </div>
 
-      <div className={classNames(styles.screen, { [styles.up]: insect })}>
+      <div
+        className={styles.screen}
+        style={{ marginTop: insect ? -container.current.clientHeight : 0 }}
+      >
         <h1>What is your "favorite" insect?</h1>
         <ul className={styles['insects-list']}>
           {insectTypes.map(({ name, img }, i) => {
@@ -112,7 +120,7 @@ const InsectCatchGame = () => {
         </ul>
       </div>
 
-      <div className={classNames(styles.screen, styles['game-container'])} id="game-container">
+      <div className={classNames(styles.screen, styles['game-container'])} ref={gameArea}>
         <h3 id="time" className={styles.time}>
           Time: {timeFormat(second)}
         </h3>

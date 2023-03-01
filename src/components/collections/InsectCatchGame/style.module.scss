@@ -5,6 +5,7 @@
   height: 100%;
   overflow: hidden;
   text-align: center;
+  position: relative;
   & a {
     color: #fff;
   }
@@ -42,11 +43,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   transition: margin 0.5s ease-out;
   &.up {
-    margin-top: -100vh;
+    margin-top: -100%;
   }
 }
 

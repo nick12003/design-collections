@@ -14,9 +14,6 @@ const DrinkWater = () => {
   const [percent, setPercent] = useState(0);
   return (
     <div className={styles.DrinkWater}>
-      <h1>Drink Water</h1>
-      <h3>Goal: 2 Liters</h3>
-
       <div className={styles.cup}>
         {percent === 8 ? (
           ''
@@ -41,32 +38,34 @@ const DrinkWater = () => {
           {`${(percent / 8) * 100}%`}
         </div>
       </div>
-      <p className={styles.text}>Select how many glasses of water that you have drank</p>
-      <div className={styles.cups}>
-        {cups.map(({ full }, i) => {
-          return (
-            <div
-              key={i}
-              className={classNames(styles.cup, styles['cup-small'], { [styles.full]: full })}
-              onClick={() => {
-                let copyCups = [...cups];
-                setCups(
-                  copyCups.map((cup, j) => {
-                    if (j === i && cup.full && i === percent - 1) {
-                      return { full: false };
-                    }
-                    if (j <= i) return { full: true };
-                    else return { full: false };
-                  })
-                );
-                if (i + 1 === percent) setPercent(i);
-                else setPercent(i + 1);
-              }}
-            >
-              250 ml
-            </div>
-          );
-        })}
+      <div className={styles.cupsWrapper}>
+        <p className={styles.text}>Select how many glasses of water that you have drank</p>
+        <div className={styles.cups}>
+          {cups.map(({ full }, i) => {
+            return (
+              <div
+                key={i}
+                className={classNames(styles.cup, styles['cup-small'], { [styles.full]: full })}
+                onClick={() => {
+                  let copyCups = [...cups];
+                  setCups(
+                    copyCups.map((cup, j) => {
+                      if (j === i && cup.full && i === percent - 1) {
+                        return { full: false };
+                      }
+                      if (j <= i) return { full: true };
+                      else return { full: false };
+                    })
+                  );
+                  if (i + 1 === percent) setPercent(i);
+                  else setPercent(i + 1);
+                }}
+              >
+                250 ml
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

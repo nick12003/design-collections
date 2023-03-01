@@ -36,4 +36,13 @@
   & > *:last-child {
     margin-left: auto;
   }
+  @media (max-width: 768px) {
+    & {
+      padding: 0.5rem;
+    }
+    & > * {
+      height: 1.75rem;
+      width: 1.75rem;
+    }
+  }
 }
