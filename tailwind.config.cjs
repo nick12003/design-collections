@@ -32,6 +32,7 @@ module.exports = {
       colors: {
         primary: '#8b58ff',
         'primary-light': '#b08ffb',
+        'primary-dark': '#4405d1',
       },
       keyframes: {
         ShowMenu: {
