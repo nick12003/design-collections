@@ -18,6 +18,7 @@ const Navbar = ({ isMenuOpen, openMenu, closeMenu }) => {
           </Link>
           <div>{location.pathname.substring(1)}</div>
           <button
+            id="HamBtn"
             className="hover:scale-125 transition duration-300 ease-out md:absolute md:right-[1.5rem] text-primary"
             onClick={() => (isMenuOpen ? closeMenu() : openMenu())}
           >

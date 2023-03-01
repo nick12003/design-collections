@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import { config } from '../../routerConfig';
 
-const Menu = ({ isMenuOpen, isOpened, closeMenu }) => {
+const Menu = ({ guidedEnabled, isMenuOpen, isOpened, closeMenu }) => {
   const [menuList, setMenuList] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [focus, setFocus] = useState(false);
@@ -22,14 +22,21 @@ const Menu = ({ isMenuOpen, isOpened, closeMenu }) => {
 
   return (
     <div
+      id="Menu"
       className={classNames(
         'backdrop-blur min-w-[350px] h-[calc(100vh-52px)] md:h-[calc(100vh-64px)] w-full md:w-3/12 fixed z-50 overflow-y-auto overscroll-y-none scrollbar-hide -left-full',
         {
           'animate-ShowMenu': isOpened && isMenuOpen,
           'animate-HideMenu': isOpened && !isMenuOpen,
+          'overflow-y-hidden': guidedEnabled,
         }
       )}
     >
+      {/* 使用者引導時避免點擊到選單的遮罩 */}
+      {guidedEnabled && (
+        <div className="w-full h-[calc(100vh-52px)] md:h-[calc(100vh-64px)]  fixed z-[52]" />
+      )}
+      {/* 搜尋框 */}
       <div className="bg-white w-full h-[80px] flex items-center justify-center sticky top-0 z-[51]">
         <div
           className={classNames(
@@ -70,6 +77,7 @@ const Menu = ({ isMenuOpen, isOpened, closeMenu }) => {
           </div>
         </div>
       </div>
+      {/* 選單列表 */}
       {menuList
         .filter(
           ({ path, no }) =>
@@ -90,7 +98,9 @@ const Menu = ({ isMenuOpen, isOpened, closeMenu }) => {
                 }
               )}
             >
+              {/* 序號 */}
               <div className="w-[30px]">{`${no}.`}</div>
+              {/* 選項名稱 */}
               <div>{path}</div>
             </div>
           </Link>
