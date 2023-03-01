@@ -79,6 +79,11 @@
   padding: 40px;
   position: relative;
   transition-delay: 0s;
+  overflow-y: auto;
+  &::-webkit-scrollbar,
+  .note::-webkit-scrollbar {
+    display: none;
+  }
   &.visible {
     transition-delay: 0.4s;
   }

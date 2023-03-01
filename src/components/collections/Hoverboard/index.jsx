@@ -9,7 +9,7 @@ const getRandomColor = () => {
 };
 
 const Hoverboard = () => {
-  const [squares, setSquares] = useState(Array(500).fill());
+  const [squares, setSquares] = useState(Array(400).fill());
   return (
     <div className={styles.Hoverboard}>
       <div className={styles.container}>

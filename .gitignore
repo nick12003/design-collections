@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+# 建置後自動複製過來的code
+public/collections
 
 # Editor directories and files
 .vscode/*

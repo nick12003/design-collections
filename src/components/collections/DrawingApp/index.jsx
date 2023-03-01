@@ -2,12 +2,17 @@ import { useState, useRef, useEffect } from 'react';
 
 import styles from './style.module.scss';
 
+const checkSize = () => {
+  if (window.innerWidth > 1280) return 'xl';
+  if (window.innerWidth > 1024) return 'lg';
+  else if (window.innerWidth > 768) return 'md';
+  else return 'sm';
+};
+
 const useRWD = () => {
-  const [device, setDevice] = useState('mobile');
+  const [device, setDevice] = useState(checkSize());
   const handleRWD = () => {
-    if (window.innerWidth > 850) setDevice('PC');
-    else if (window.innerWidth > 550) setDevice('tablet');
-    else setDevice('mobile');
+    setDevice(checkSize(window.innerWidth));
   };
   useEffect(() => {
     window.addEventListener('resize', handleRWD);
@@ -53,19 +58,21 @@ const DrawingApp = () => {
   const device = useRWD();
   useEffect(() => {
     switch (device) {
-      case 'PC':
-        setW(800);
+      case 'xl':
+        setW(600);
         setH(600);
         break;
-      case 'tablet':
-        setW(500);
+      case 'lg':
+        setW(400);
         setH(600);
         break;
-      case 'mobile':
-        setW(300);
-        setH(400);
+      case 'md':
+        setW(600);
+        setH(250);
         break;
       default:
+        setW(300);
+        setH(200);
         break;
     }
   }, [device]);
@@ -79,9 +86,10 @@ const DrawingApp = () => {
         width={width}
         height={height}
         onMouseDown={(e) => {
+          const rect = e.target.getBoundingClientRect();
           setPressed(true);
-          let x = e.clientX - e.target.offsetLeft;
-          let y = e.clientY - 80 - e.target.offsetTop;
+          let x = e.clientX - rect.left;
+          let y = e.clientY - rect.top;
           setOffsetX(x);
           setOffsetY(y);
         }}
@@ -92,8 +100,9 @@ const DrawingApp = () => {
         }}
         onMouseMove={(e) => {
           if (pressed) {
-            let x2 = e.clientX - e.target.offsetLeft;
-            let y2 = e.clientY - 80 - e.target.offsetTop;
+            const rect = e.target.getBoundingClientRect();
+            let x2 = e.clientX - rect.left;
+            let y2 = e.clientY - rect.top;
             drawCircle(x2, y2);
             drawLine(offsetX, offsetY, x2, y2);
             setOffsetX(x2);

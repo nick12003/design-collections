@@ -5,6 +5,7 @@ import Layout from './components/Layout';
 import Home from './components/Home';
 import Loading from './components/Loading';
 import NotFount from './components/NotFount';
+import CodePreview from './components/Layout/CodePreview';
 
 const DocumentTitle = ({ children, title }) => {
   document.title = title;
@@ -16,7 +17,12 @@ const lazyLoadCollections = (projectName) => {
   return (
     <Suspense fallback={<Loading />}>
       <DocumentTitle title={projectName}>
-        <LazyElement />
+        <div className="w-full h-full flex flex-col  lg:flex-row">
+          <div className="w-full h-full overflow-y-auto">
+            <LazyElement />
+          </div>
+          <CodePreview projectName={projectName} />
+        </div>
       </DocumentTitle>
     </Suspense>
   );

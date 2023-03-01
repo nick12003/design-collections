@@ -27,6 +27,12 @@
     box-shadow: none;
     transform: translateY(2px);
   }
+  @media (max-width: 1024px) {
+    & {
+      top: 10px;
+      padding: 6px 12px;
+    }
+  }
 }
 
 .boxes {
@@ -41,6 +47,16 @@
     height: 600px;
     & .box {
       transform: rotateZ(360deg);
+    }
+  }
+  @media (max-width: 1024px) {
+    & {
+      height: 240px;
+      width: 240px;
+    }
+    &.big {
+      width: 280px;
+      height: 280px;
     }
   }
 }
@@ -79,5 +95,12 @@
     height: 15px;
     width: 100%;
     transform: skewX(45deg);
+  }
+  @media (max-width: 1024px) {
+    & {
+      background-size: 240px 240px;
+      height: 60px;
+      width: 60px;
+    }
   }
 }

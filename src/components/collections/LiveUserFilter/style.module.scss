@@ -46,6 +46,11 @@
   padding: 0;
   max-height: 400px;
   overflow-y: auto;
+  @media (max-width: 1024px) {
+    & {
+      max-height: 200px;
+    }
+  }
   li {
     display: flex;
     padding: 20px;

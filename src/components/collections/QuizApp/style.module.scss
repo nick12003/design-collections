@@ -51,6 +51,11 @@
 
 .quiz-header {
   padding: 4rem;
+  @media (max-width: 1024px) {
+    & {
+      padding: 1rem 4rem;
+    }
+  }
 }
 
 .answer {
