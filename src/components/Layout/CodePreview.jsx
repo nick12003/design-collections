@@ -10,12 +10,16 @@ const CodePreview = ({ projectName }) => {
 
   useEffect(() => {
     async function fetchCode() {
-      const jsResponse = await fetch(`collections/${projectName}/index.jsx`);
-      const cssResponse = await fetch(`collections/${projectName}/style.module.scss`);
-      const jsText = await jsResponse.text();
-      const cssText = await cssResponse.text();
-      setCode(jsText);
-      setCss(cssText);
+      const jsResponse = await fetch(
+        `https://api.github.com/repos/nick12003/design-collections/contents/src/components/collections/${projectName}/index.jsx`
+      );
+      const cssResponse = await fetch(
+        `https://api.github.com/repos/nick12003/design-collections/contents/src/components/collections/${projectName}/style.module.scss`
+      );
+      const jsResult = await jsResponse.json();
+      const cssResult = await cssResponse.json();
+      setCode(atob(jsResult.content));
+      setCss(atob(cssResult.content));
     }
     fetchCode();
   }, [projectName]);
