@@ -1,3 +1,4 @@
+import { FaCalendar } from 'react-icons/fa';
 import classNames from 'classnames';
 
 const Link = ({ children, href, main }) => (
@@ -24,6 +25,24 @@ const Section = ({ children, className, id }) => (
   </section>
 );
 
+const Step = ({ title, company, during, right }) => (
+  <div className="w-[20px] h-[20px] rounded-[50%] bg-primary z-10">
+    <div
+      className={classNames('w-[200px] relative', {
+        '-translate-x-full': !right,
+        'translate-x-1/2': right,
+      })}
+    >
+      <h5 className="text-lg font-bold">{title}</h5>
+      <div className="text-gray-400">{company}</div>
+      <div className="flex items-center text-gray-400 mt-4">
+        <FaCalendar />
+        <span className="ml-1">{during}</span>
+      </div>
+    </div>
+  </div>
+);
+
 const Home = () => {
   return (
     <div className="flex flex-wrap items-center justify-center">
@@ -47,7 +66,7 @@ const Home = () => {
         </Section>
       </div>
       <Section className="flex flex-col items-center justify-center" id="aboutMe">
-        <h1 className="w-full text-4xl font-black underline decoration-primary text-center md:text-left">
+        <h1 className="w-full text-4xl font-black text-center md:text-left text-primary">
           About Me
         </h1>
         <div className="w-full flex flex-col md:flex-row mt-8">
@@ -66,6 +85,20 @@ const Home = () => {
             <p className="text-lg text-gray-600 mt-3">
               現在，我是一名有豐富經驗的工程師，有著對程式設計的深厚理解和熱情，並不斷在自己的工作中追求更高的技術水平。我相信，我的熱情、學習能力和才華會讓我在這個行業中做出更好的貢獻。
             </p>
+          </div>
+        </div>
+      </Section>
+      <Section className="flex flex-col items-center justify-center" id="experience">
+        <h1 className="w-full text-4xl font-black text-center md:text-left text-primary">
+          Experience
+        </h1>
+        <div className="w-full h-[60vh] flex items-center md:flex-row">
+          <div className=" w-full h-[70%] flex flex-col items-center justify-between relative">
+            <div className="absolute w-1 h-full bg-primary/50"></div>
+            <Step title="大學生" company="龍華科技大學" during="2015-2018" />
+            <Step title="高級專案工程師" company="人工智能股份有限公司" during="2017-2021" right />
+            <Step title="前端工程師" company="聯合智網股份有限公司" during="2021-2022" />
+            <Step title="your partner" company="your company" during="2023-feature" right />
           </div>
         </div>
       </Section>
