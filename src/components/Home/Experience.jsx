@@ -29,10 +29,8 @@ const Experience = () => {
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         setStart(true);
-        console.log('start animation');
       } else {
         setStart(false);
-        console.log('restore animation');
       }
     });
     observer.observe(experienceRef.current);
