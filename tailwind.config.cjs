@@ -55,6 +55,10 @@ module.exports = {
           '0%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
         },
+        ShoExperience: {
+          '0%': { transform: 'translateY(-50%)', opacity: 0 },
+          '100%': { transform: 'translateY(0)', opacity: 1 },
+        },
       },
       animation: {
         ShowMenu: 'ShowMenu 0.5s ease-in-out forwards',
@@ -62,6 +66,7 @@ module.exports = {
         ShowMask: 'ShowMask 0.5s ease-in-out forwards',
         HideMask: 'HideMask 0.5s ease-in-out forwards',
         Loading: 'Loading 0.5s ease-in-out infinite',
+        ShoExperience: 'ShoExperience 1s ease-in-out forwards',
       },
     },
   },

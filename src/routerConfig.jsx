@@ -5,7 +5,7 @@ import Layout from './components/Layout';
 import Home from './components/Home';
 import Loading from './components/Loading';
 import NotFount from './components/NotFount';
-import CodePreview from './components/Layout/CodePreview';
+import CodePreview from './components/CodePreview';
 
 const DocumentTitle = ({ children, title }) => {
   document.title = title;
@@ -21,11 +21,30 @@ const lazyLoadCollections = (projectName) => {
           <div className="w-full h-full overflow-y-auto">
             <LazyElement />
           </div>
-          <CodePreview projectName={projectName} />
+          <CodePreview />
         </div>
       </DocumentTitle>
     </Suspense>
   );
+};
+
+const createDesignRouter = (projectName) => {
+  return {
+    path: projectName,
+    element: lazyLoadCollections(projectName),
+    loader: async () => {
+      const jsResponse = await fetch(
+        `https://api.github.com/repos/nick12003/design-collections/contents/src/components/collections/${projectName}/index.jsx`
+      );
+      const cssResponse = await fetch(
+        `https://api.github.com/repos/nick12003/design-collections/contents/src/components/collections/${projectName}/style.module.scss`
+      );
+      const jsResult = await jsResponse.json();
+      const cssResult = await cssResponse.json();
+
+      return { jsResult, cssResult };
+    },
+  };
 };
 
 export const config = {
@@ -41,208 +60,157 @@ export const config = {
       ),
     },
     {
-      path: 'AnimatedCountdown',
-      element: lazyLoadCollections('AnimatedCountdown'),
+      ...createDesignRouter('AnimatedCountdown'),
     },
     {
-      path: 'AnimatedNavigation',
-      element: lazyLoadCollections('AnimatedNavigation'),
+      ...createDesignRouter('AnimatedNavigation'),
     },
     {
-      path: 'AutoTextEffect',
-      element: lazyLoadCollections('AutoTextEffect'),
+      ...createDesignRouter('AutoTextEffect'),
     },
     {
-      path: 'BackgroundSlider',
-      element: lazyLoadCollections('BackgroundSlider'),
+      ...createDesignRouter('BackgroundSlider'),
     },
     {
-      path: 'BlurryLoading',
-      element: lazyLoadCollections('BlurryLoading'),
+      ...createDesignRouter('BlurryLoading'),
     },
     {
-      path: 'ButtonRippleEffect',
-      element: lazyLoadCollections('ButtonRippleEffect'),
+      ...createDesignRouter('ButtonRippleEffect'),
     },
     {
-      path: 'ContentPlaceholder',
-      element: lazyLoadCollections('ContentPlaceholder'),
+      ...createDesignRouter('ContentPlaceholder'),
     },
     {
-      path: 'CustomRangeSlider',
-      element: lazyLoadCollections('CustomRangeSlider'),
+      ...createDesignRouter('CustomRangeSlider'),
     },
     {
-      path: 'DadJokes',
-      element: lazyLoadCollections('DadJokes'),
+      ...createDesignRouter('DadJokes'),
     },
     {
-      path: 'DoubleClickHeart',
-      element: lazyLoadCollections('DoubleClickHeart'),
+      ...createDesignRouter('DoubleClickHeart'),
     },
     {
-      path: 'DoubleVerticalSlider',
-      element: lazyLoadCollections('DoubleVerticalSlider'),
+      ...createDesignRouter('DoubleVerticalSlider'),
     },
     {
-      path: 'DragNDrop',
-      element: lazyLoadCollections('DragNDrop'),
+      ...createDesignRouter('DragNDrop'),
     },
     {
-      path: 'DrawingApp',
-      element: lazyLoadCollections('DrawingApp'),
+      ...createDesignRouter('DrawingApp'),
     },
     {
-      path: 'DrinkWater',
-      element: lazyLoadCollections('DrinkWater'),
+      ...createDesignRouter('DrinkWater'),
     },
     {
-      path: 'EventKeyCodes',
-      element: lazyLoadCollections('EventKeyCodes'),
+      ...createDesignRouter('EventKeyCodes'),
     },
     {
-      path: 'ExpandingCards',
-      element: lazyLoadCollections('ExpandingCards'),
+      ...createDesignRouter('ExpandingCards'),
     },
     {
-      path: 'FaqCollapse',
-      element: lazyLoadCollections('FaqCollapse'),
+      ...createDesignRouter('FaqCollapse'),
     },
     {
-      path: 'FeedbackUiDesign',
-      element: lazyLoadCollections('FeedbackUiDesign'),
+      ...createDesignRouter('FeedbackUiDesign'),
     },
     {
-      path: 'FormWave',
-      element: lazyLoadCollections('FormWave'),
+      ...createDesignRouter('FormWave'),
     },
     {
-      path: 'GithubProfiles',
-      element: lazyLoadCollections('GithubProfiles'),
+      ...createDesignRouter('GithubProfiles'),
     },
     {
-      path: 'GoodCheapFast',
-      element: lazyLoadCollections('GoodCheapFast'),
+      ...createDesignRouter('GoodCheapFast'),
     },
     {
-      path: 'HiddenSearchWidget',
-      element: lazyLoadCollections('HiddenSearchWidget'),
+      ...createDesignRouter('HiddenSearchWidget'),
     },
     {
-      path: 'Hoverboard',
-      element: lazyLoadCollections('Hoverboard'),
+      ...createDesignRouter('Hoverboard'),
     },
     {
-      path: 'ImageCarousel',
-      element: lazyLoadCollections('ImageCarousel'),
+      ...createDesignRouter('ImageCarousel'),
     },
     {
-      path: 'IncrementingCounter',
-      element: lazyLoadCollections('IncrementingCounter'),
+      ...createDesignRouter('IncrementingCounter'),
     },
     {
-      path: 'InfiniteScrolling',
-      element: lazyLoadCollections('InfiniteScrolling'),
+      ...createDesignRouter('InfiniteScrolling'),
     },
     {
-      path: 'InsectCatchGame',
-      element: lazyLoadCollections('InsectCatchGame'),
+      ...createDesignRouter('InsectCatchGame'),
     },
     {
-      path: 'KineticLoader',
-      element: lazyLoadCollections('KineticLoader'),
+      ...createDesignRouter('KineticLoader'),
     },
     {
-      path: 'LiveUserFilter',
-      element: lazyLoadCollections('LiveUserFilter'),
+      ...createDesignRouter('LiveUserFilter'),
     },
     {
-      path: 'MobileNavigation',
-      element: lazyLoadCollections('MobileNavigation'),
+      ...createDesignRouter('MobileNavigation'),
     },
     {
-      path: 'MobileTabNavigation',
-      element: lazyLoadCollections('MobileTabNavigation'),
+      ...createDesignRouter('MobileTabNavigation'),
     },
     {
-      path: 'MovieApp',
-      element: lazyLoadCollections('MovieApp'),
+      ...createDesignRouter('MovieApp'),
     },
     {
-      path: 'MovieSeatBooking',
-      element: lazyLoadCollections('MovieSeatBooking'),
+      ...createDesignRouter('MovieSeatBooking'),
     },
     {
-      path: 'NotesApp',
-      element: lazyLoadCollections('NotesApp'),
+      ...createDesignRouter('NotesApp'),
     },
     {
-      path: 'PasswordGenerator',
-      element: lazyLoadCollections('PasswordGenerator'),
+      ...createDesignRouter('PasswordGenerator'),
     },
     {
-      path: 'PasswordStrengthBackground',
-      element: lazyLoadCollections('PasswordStrengthBackground'),
+      ...createDesignRouter('PasswordStrengthBackground'),
     },
     {
-      path: 'Pokedex',
-      element: lazyLoadCollections('Pokedex'),
+      ...createDesignRouter('Pokedex'),
     },
     {
-      path: 'ProgressSteps',
-      element: lazyLoadCollections('ProgressSteps'),
+      ...createDesignRouter('ProgressSteps'),
     },
     {
-      path: 'QuizApp',
-      element: lazyLoadCollections('QuizApp'),
+      ...createDesignRouter('QuizApp'),
     },
     {
-      path: 'RandomChoicePicker',
-      element: lazyLoadCollections('RandomChoicePicker'),
+      ...createDesignRouter('RandomChoicePicker'),
     },
     {
-      path: 'RotatingNavigationAnimation',
-      element: lazyLoadCollections('RotatingNavigationAnimation'),
+      ...createDesignRouter('RotatingNavigationAnimation'),
     },
     {
-      path: 'ScrollAnimation',
-      element: lazyLoadCollections('ScrollAnimation'),
+      ...createDesignRouter('ScrollAnimation'),
     },
     {
-      path: 'SoundBoard',
-      element: lazyLoadCollections('SoundBoard'),
+      ...createDesignRouter('SoundBoard'),
     },
     {
-      path: 'SplitLandingPage',
-      element: lazyLoadCollections('SplitLandingPage'),
+      ...createDesignRouter('SplitLandingPage'),
     },
     {
-      path: 'StickyNavbar',
-      element: lazyLoadCollections('StickyNavbar'),
+      ...createDesignRouter('StickyNavbar'),
     },
     {
-      path: 'TestimonialBoxSwitcher',
-      element: lazyLoadCollections('TestimonialBoxSwitcher'),
+      ...createDesignRouter('TestimonialBoxSwitcher'),
     },
     {
-      path: 'ThemeClock',
-      element: lazyLoadCollections('ThemeClock'),
+      ...createDesignRouter('ThemeClock'),
     },
     {
-      path: 'ThreeDBackgroundBoxes',
-      element: lazyLoadCollections('ThreeDBackgroundBoxes'),
+      ...createDesignRouter('ThreeDBackgroundBoxes'),
     },
     {
-      path: 'ToastNotification',
-      element: lazyLoadCollections('ToastNotification'),
+      ...createDesignRouter('ToastNotification'),
     },
     {
-      path: 'TodoList',
-      element: lazyLoadCollections('TodoList'),
+      ...createDesignRouter('TodoList'),
     },
     {
-      path: 'VerifyAccountUi',
-      element: lazyLoadCollections('VerifyAccountUi'),
+      ...createDesignRouter('VerifyAccountUi'),
     },
     {
       path: '*',

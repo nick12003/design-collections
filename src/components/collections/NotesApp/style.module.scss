@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   height: 100%;
   overflow: hidden auto;
+  position: relative;
   & * {
     outline: none;
   }
@@ -16,8 +17,9 @@
 }
 
 .add {
-  position: fixed;
-  top: calc(1rem + 80px);
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
   right: 1rem;
   background-color: #9ec862;
   color: #fff;

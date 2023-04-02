@@ -1,24 +1,61 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo, memo, useDeferredValue } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import classNames from 'classnames';
 
 import { config } from '../../routerConfig';
 
-const Menu = ({ guidedEnabled, isMenuOpen, isOpened, closeMenu }) => {
-  const [menuList, setMenuList] = useState([]);
-  const [searchText, setSearchText] = useState('');
-  const [focus, setFocus] = useState(false);
-
+const MenuList = memo(({ searchText, closeMenu }) => {
   const location = useLocation();
 
-  useEffect(() => {
-    setMenuList(
+  const menuList = useMemo(
+    () =>
       config?.children
         .filter(({ index, path }) => !index && path !== '*')
         .map((item, i) => ({ ...item, no: `${i + 1}` }))
-    );
-  }, []);
+        .filter(
+          ({ path, no }) =>
+            path.toUpperCase().includes(searchText.toUpperCase()) || no.includes(searchText)
+        ) ?? [],
+    [config, searchText]
+  );
+
+  return (
+    <>
+      {menuList.map(({ path, no }, i) => (
+        <Link
+          to={`/${path}`}
+          onClick={closeMenu}
+          className="block text-white no-underline w-full border-r border-b overflow-hidden"
+          key={`${path}-${i}`}
+        >
+          <div
+            className={classNames(
+              'w-full flex p-4 hover:bg-primary hover:scale-125 transition origin-left duration-300 ease-out',
+              {
+                'bg-primary scale-125': location.pathname.substring(1) === path,
+              }
+            )}
+          >
+            {/* 序號 */}
+            <div className="w-[30px]">{`${no}.`}</div>
+            {/* 選項名稱 */}
+            <div>{path}</div>
+          </div>
+        </Link>
+      ))}
+    </>
+  );
+});
+
+MenuList.displayName = 'MenuList';
+
+const Menu = ({ guidedEnabled, isMenuOpen, isOpened, closeMenu }) => {
+  const [searchText, setSearchText] = useState('');
+  const deferredSearch = useDeferredValue(searchText);
+  const [focus, setFocus] = useState(false);
+
+  const isStale = searchText !== deferredSearch;
 
   return (
     <div
@@ -78,33 +115,14 @@ const Menu = ({ guidedEnabled, isMenuOpen, isOpened, closeMenu }) => {
         </div>
       </div>
       {/* 選單列表 */}
-      {menuList
-        .filter(
-          ({ path, no }) =>
-            path.toUpperCase().includes(searchText.toUpperCase()) || no.includes(searchText)
-        )
-        .map(({ path, no }, i) => (
-          <Link
-            to={`/${path}`}
-            onClick={closeMenu}
-            className=" block text-white no-underline w-full border-r border-b overflow-hidden"
-            key={path}
-          >
-            <div
-              className={classNames(
-                'w-full flex p-4 hover:bg-primary hover:scale-125 transition origin-left duration-300 ease-out',
-                {
-                  'bg-primary scale-125': location.pathname.substring(1) === path,
-                }
-              )}
-            >
-              {/* 序號 */}
-              <div className="w-[30px]">{`${no}.`}</div>
-              {/* 選項名稱 */}
-              <div>{path}</div>
-            </div>
-          </Link>
-        ))}
+      <div
+        className={classNames('transition-opacity duration-200 ease-linear', {
+          'opacity-50': isStale,
+          'opacity-100': !isStale,
+        })}
+      >
+        <MenuList searchText={deferredSearch} closeMenu={closeMenu} />
+      </div>
     </div>
   );
 };

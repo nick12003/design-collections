@@ -1,28 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import classNames from 'classnames';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-const CodePreview = ({ projectName }) => {
-  const [code, setCode] = useState('');
-  const [css, setCss] = useState('');
+const CodePreview = () => {
   const [selected, setSelected] = useState('jsx');
 
-  useEffect(() => {
-    async function fetchCode() {
-      const jsResponse = await fetch(
-        `https://api.github.com/repos/nick12003/design-collections/contents/src/components/collections/${projectName}/index.jsx`
-      );
-      const cssResponse = await fetch(
-        `https://api.github.com/repos/nick12003/design-collections/contents/src/components/collections/${projectName}/style.module.scss`
-      );
-      const jsResult = await jsResponse.json();
-      const cssResult = await cssResponse.json();
-      setCode(atob(jsResult.content));
-      setCss(atob(cssResult.content));
-    }
-    fetchCode();
-  }, [projectName]);
+  const { jsResult, cssResult } = useLoaderData();
 
   return (
     <div className="w-full h-full flex flex-col items-center">
@@ -60,24 +45,24 @@ const CodePreview = ({ projectName }) => {
         {selected === 'jsx' && (
           <div className="w-full h-full absolute overflow-y-auto">
             <SyntaxHighlighter
-              customStyle={{ width: '100%' }}
+              customStyle={{ width: '100%', height: '100%' }}
               language="javascript"
               style={dark}
               showLineNumbers
             >
-              {code}
+              {atob(jsResult?.content)}
             </SyntaxHighlighter>
           </div>
         )}
         {selected === 'scss' && (
           <div className="w-full h-full absolute overflow-y-auto">
             <SyntaxHighlighter
-              customStyle={{ width: '100%' }}
+              customStyle={{ width: '100%', height: '100%' }}
               language="css"
               style={dark}
               showLineNumbers
             >
-              {css}
+              {atob(cssResult?.content)}
             </SyntaxHighlighter>
           </div>
         )}
