@@ -90,6 +90,9 @@ export const config = {
       ...createDesignRouter('DadJokes'),
     },
     {
+      ...createDesignRouter('DigitalClock'),
+    },
+    {
       ...createDesignRouter('DoubleClickHeart'),
     },
     {
