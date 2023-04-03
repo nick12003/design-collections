@@ -165,6 +165,9 @@ export const config = {
       ...createDesignRouter('NotesApp'),
     },
     {
+      ...createDesignRouter('ParallaxScrolling'),
+    },
+    {
       ...createDesignRouter('PasswordGenerator'),
     },
     {
