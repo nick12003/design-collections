@@ -50,7 +50,7 @@ const CodePreview = () => {
               style={dark}
               showLineNumbers
             >
-              {atob(jsResult?.content)}
+              {atob(jsResult?.content ?? '')}
             </SyntaxHighlighter>
           </div>
         )}
@@ -62,7 +62,7 @@ const CodePreview = () => {
               style={dark}
               showLineNumbers
             >
-              {atob(cssResult?.content)}
+              {atob(cssResult?.content ?? '')}
             </SyntaxHighlighter>
           </div>
         )}

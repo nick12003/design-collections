@@ -159,6 +159,9 @@ export const config = {
       ...createDesignRouter('MovieSeatBooking'),
     },
     {
+      ...createDesignRouter('NavigationMenuIndicator'),
+    },
+    {
       ...createDesignRouter('NotesApp'),
     },
     {

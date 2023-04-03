@@ -1,0 +1,105 @@
+.NavigationMenuIndicator {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #222327;
+
+  .navigation {
+    position: relative;
+    width: 400px;
+    height: 70px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    ul {
+      display: flex;
+      li {
+        position: relative;
+        list-style: none;
+        width: 70px;
+        height: 70px;
+        z-index: 1;
+        &.active {
+          a {
+            .icon {
+              transform: translateY(-35px);
+            }
+            .text {
+              opacity: 1;
+              transform: translateY(10px);
+            }
+          }
+        }
+
+        a {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          width: 100%;
+          text-align: center;
+          font-weight: 500;
+          .icon {
+            position: relative;
+            display: block;
+            height: 70px;
+            line-height: 70px;
+            font-size: 1.5rem;
+            transition: 0.5s;
+            color: #222327;
+            svg {
+              height: 100%;
+            }
+          }
+          .text {
+            position: absolute;
+            color: #222327;
+            font-weight: 400;
+            font-size: 0.75em;
+            letter-spacing: 0.05em;
+            transition: 0.5s;
+            opacity: 0;
+            transform: translateY(20px);
+          }
+        }
+      }
+      .indicator {
+        position: absolute;
+        top: -50%;
+        width: 70px;
+        height: 70px;
+        background-color: #29fd53;
+        border-radius: 50%;
+        border: 6px solid #222327;
+        transition: 0.5s;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: -20px;
+          width: 20px;
+          height: 20px;
+          background-color: transparent;
+          border-top-right-radius: 20px;
+          box-shadow: 0px -10px 0 0 #222327;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: -20px;
+          width: 20px;
+          height: 20px;
+          background-color: transparent;
+          border-top-left-radius: 20px;
+          box-shadow: 0px -10px 0 0 #222327;
+        }
+      }
+    }
+  }
+}
