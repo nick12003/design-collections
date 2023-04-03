@@ -60,6 +60,9 @@ export const config = {
       ),
     },
     {
+      ...createDesignRouter('AmbientLight'),
+    },
+    {
       ...createDesignRouter('AnimatedCountdown'),
     },
     {
