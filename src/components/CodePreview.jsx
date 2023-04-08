@@ -10,7 +10,7 @@ const CodePreview = () => {
   const { jsResult, cssResult } = useLoaderData();
 
   return (
-    <div className="w-full h-full flex flex-col items-center">
+    <div className="lg:w-full lg:h-full w-0 h-0 overflow-hidden flex flex-col items-center">
       <div className="w-[200px] h-fit relative flex">
         <div
           className={classNames(

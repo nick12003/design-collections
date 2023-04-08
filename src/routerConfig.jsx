@@ -81,6 +81,9 @@ export const config = {
       ...createDesignRouter('ButtonRippleEffect'),
     },
     {
+      ...createDesignRouter('Calculator'),
+    },
+    {
       ...createDesignRouter('ContentPlaceholder'),
     },
     {
