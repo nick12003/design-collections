@@ -1,24 +1,20 @@
-import { lazy, Suspense } from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { lazy, Suspense } from "react";
+import { createBrowserRouter } from "react-router-dom";
 
-import Layout from './components/Layout';
-import Home from './components/Home';
-import Loading from './components/Loading';
-import NotFount from './components/NotFount';
-import CodePreview from './components/CodePreview';
-
-const DocumentTitle = ({ children, title }) => {
-  document.title = title;
-  return <>{children}</>;
-};
+import Layout from "@/Layout";
+import Loading from "@/components/Loading";
+import NotFount from "@/components/NotFount";
+import CodePreview from "@/components/CodePreview";
+import DocumentTitle from "@/components/DocumentTitle";
+import Home from "@/pages/Home";
 
 const lazyLoadCollections = (projectName) => {
-  const LazyElement = lazy(() => import(`./components/collections/${projectName}/index.jsx`));
+  const LazyElement = lazy(() => import(`@/pages/collections/${projectName}/index.jsx`));
   return (
     <Suspense fallback={<Loading />}>
       <DocumentTitle title={projectName}>
-        <div className="w-full h-full flex flex-col  lg:flex-row">
-          <div className="w-full h-full overflow-y-auto">
+        <div className='w-full h-full flex flex-col  lg:flex-row'>
+          <div className='w-full h-full overflow-y-auto'>
             <LazyElement />
           </div>
           <CodePreview />
@@ -48,190 +44,192 @@ const createDesignRouter = (projectName) => {
 };
 
 export const config = {
-  path: '/',
+  path: "/",
   element: <Layout />,
   children: [
     {
       index: true,
       element: (
-        <DocumentTitle title="design-collections">
+        <DocumentTitle title='design-collections'>
           <Home />
         </DocumentTitle>
       ),
     },
     {
-      ...createDesignRouter('AmbientLight'),
+      ...createDesignRouter("AmbientLight"),
     },
     {
-      ...createDesignRouter('AnimatedCountdown'),
+      ...createDesignRouter("AnimatedCountdown"),
     },
     {
-      ...createDesignRouter('AnimatedNavigation'),
+      ...createDesignRouter("AnimatedNavigation"),
     },
     {
-      ...createDesignRouter('AutoTextEffect'),
+      ...createDesignRouter("AutoTextEffect"),
     },
     {
-      ...createDesignRouter('BackgroundSlider'),
+      ...createDesignRouter("BackgroundSlider"),
     },
     {
-      ...createDesignRouter('BlurryLoading'),
+      ...createDesignRouter("BlurryLoading"),
     },
     {
-      ...createDesignRouter('ButtonRippleEffect'),
+      ...createDesignRouter("ButtonRippleEffect"),
     },
     {
-      ...createDesignRouter('Calculator'),
+      ...createDesignRouter("Calculator"),
     },
     {
-      ...createDesignRouter('ContentPlaceholder'),
+      ...createDesignRouter("ContentPlaceholder"),
     },
     {
-      ...createDesignRouter('CustomRangeSlider'),
+      ...createDesignRouter("CustomRangeSlider"),
     },
     {
-      ...createDesignRouter('DadJokes'),
+      ...createDesignRouter("DadJokes"),
     },
     {
-      ...createDesignRouter('DigitalClock'),
+      ...createDesignRouter("DigitalClock"),
     },
     {
-      ...createDesignRouter('DoubleClickHeart'),
+      ...createDesignRouter("DoubleClickHeart"),
     },
     {
-      ...createDesignRouter('DoubleVerticalSlider'),
+      ...createDesignRouter("DoubleVerticalSlider"),
     },
     {
-      ...createDesignRouter('DragNDrop'),
+      ...createDesignRouter("DragNDrop"),
     },
     {
-      ...createDesignRouter('DrawingApp'),
+      ...createDesignRouter("DrawingApp"),
     },
     {
-      ...createDesignRouter('DrinkWater'),
+      ...createDesignRouter("DrinkWater"),
     },
     {
-      ...createDesignRouter('EventKeyCodes'),
+      ...createDesignRouter("EventKeyCodes"),
     },
     {
-      ...createDesignRouter('ExpandingCards'),
+      ...createDesignRouter("ExpandingCards"),
     },
     {
-      ...createDesignRouter('FaqCollapse'),
+      ...createDesignRouter("FaqCollapse"),
     },
     {
-      ...createDesignRouter('FeedbackUiDesign'),
+      ...createDesignRouter("FeedbackUiDesign"),
     },
     {
-      ...createDesignRouter('FormWave'),
+      ...createDesignRouter("FormWave"),
     },
     {
-      ...createDesignRouter('GithubProfiles'),
+      ...createDesignRouter("GithubProfiles"),
     },
     {
-      ...createDesignRouter('GoodCheapFast'),
+      ...createDesignRouter("GoodCheapFast"),
     },
     {
-      ...createDesignRouter('HiddenSearchWidget'),
+      ...createDesignRouter("HiddenSearchWidget"),
     },
     {
-      ...createDesignRouter('Hoverboard'),
+      ...createDesignRouter("Hoverboard"),
     },
     {
-      ...createDesignRouter('ImageCarousel'),
+      ...createDesignRouter("ImageCarousel"),
     },
     {
-      ...createDesignRouter('IncrementingCounter'),
+      ...createDesignRouter("IncrementingCounter"),
     },
     {
-      ...createDesignRouter('InfiniteScrolling'),
+      ...createDesignRouter("InfiniteScrolling"),
     },
     {
-      ...createDesignRouter('InsectCatchGame'),
+      ...createDesignRouter("InsectCatchGame"),
     },
     {
-      ...createDesignRouter('KineticLoader'),
+      ...createDesignRouter("KineticLoader"),
     },
     {
-      ...createDesignRouter('LiveUserFilter'),
+      ...createDesignRouter("LiveUserFilter"),
     },
     {
-      ...createDesignRouter('MobileNavigation'),
+      ...createDesignRouter("MobileNavigation"),
     },
     {
-      ...createDesignRouter('MobileTabNavigation'),
+      ...createDesignRouter("MobileTabNavigation"),
     },
     {
-      ...createDesignRouter('MovieApp'),
+      ...createDesignRouter("MovieApp"),
     },
     {
-      ...createDesignRouter('MovieSeatBooking'),
+      ...createDesignRouter("MovieSeatBooking"),
     },
     {
-      ...createDesignRouter('NavigationMenuIndicator'),
+      ...createDesignRouter("NavigationMenuIndicator"),
     },
     {
-      ...createDesignRouter('NotesApp'),
+      ...createDesignRouter("NotesApp"),
     },
     {
-      ...createDesignRouter('ParallaxScrolling'),
+      ...createDesignRouter("ParallaxScrolling"),
     },
     {
-      ...createDesignRouter('PasswordGenerator'),
+      ...createDesignRouter("PasswordGenerator"),
     },
     {
-      ...createDesignRouter('PasswordStrengthBackground'),
+      ...createDesignRouter("PasswordStrengthBackground"),
     },
     {
-      ...createDesignRouter('Pokedex'),
+      ...createDesignRouter("Pokedex"),
     },
     {
-      ...createDesignRouter('ProgressSteps'),
+      ...createDesignRouter("ProgressSteps"),
     },
     {
-      ...createDesignRouter('QuizApp'),
+      ...createDesignRouter("QuizApp"),
     },
     {
-      ...createDesignRouter('RandomChoicePicker'),
+      ...createDesignRouter("RandomChoicePicker"),
     },
     {
-      ...createDesignRouter('RotatingNavigationAnimation'),
+      ...createDesignRouter("RotatingNavigationAnimation"),
     },
     {
-      ...createDesignRouter('ScrollAnimation'),
+      ...createDesignRouter("ScrollAnimation"),
     },
     {
-      ...createDesignRouter('SoundBoard'),
+      ...createDesignRouter("SoundBoard"),
     },
     {
-      ...createDesignRouter('SplitLandingPage'),
+      ...createDesignRouter("SplitLandingPage"),
     },
     {
-      ...createDesignRouter('StickyNavbar'),
+      ...createDesignRouter("StickyNavbar"),
     },
     {
-      ...createDesignRouter('TestimonialBoxSwitcher'),
+      ...createDesignRouter("TestimonialBoxSwitcher"),
     },
     {
-      ...createDesignRouter('ThemeClock'),
+      ...createDesignRouter("ThemeClock"),
     },
     {
-      ...createDesignRouter('ThreeDBackgroundBoxes'),
+      ...createDesignRouter("ThreeDBackgroundBoxes"),
     },
     {
-      ...createDesignRouter('ToastNotification'),
+      ...createDesignRouter("ToastNotification"),
     },
     {
-      ...createDesignRouter('TodoList'),
+      ...createDesignRouter("TodoList"),
     },
     {
-      ...createDesignRouter('VerifyAccountUi'),
+      ...createDesignRouter("VerifyAccountUi"),
     },
     {
-      path: '*',
+      path: "*",
       element: <NotFount />,
     },
   ],
 };
 
-export default createBrowserRouter([config]);
+const router = createBrowserRouter([config]);
+
+export default router;

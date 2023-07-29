@@ -1,18 +1,27 @@
-# design-collections
+# React + TypeScript + Vite
 
-多個項目的合輯
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-# 介紹
+Currently, two official plugins are available:
 
-大部分作品參考 [50projects50days](https://github.com/bradtraversy/50projects50days) 將純js、html、css的專案使用React重製
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-# demo
+## Expanding the ESLint configuration
 
-[demo](https://design-collections.vercel.app/)
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-# 開始使用
+- Configure the top-level `parserOptions` property like this:
 
+```js
+   parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+   },
 ```
-npm install
-npm run dev
-```
+
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list

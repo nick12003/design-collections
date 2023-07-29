@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import classNames from 'classnames';
 
-import { config } from '../../routerConfig';
+import { config } from '@/routerConfig';
 
 const MenuList = memo(({ searchText, closeMenu }) => {
   const location = useLocation();
