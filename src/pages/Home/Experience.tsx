@@ -1,8 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FaCalendar } from 'react-icons/fa';
 import classNames from 'classnames';
 
-const Step = ({ title, company, during, right }) => (
+type StepProps = {
+  title: string;
+  company: string;
+  during: string;
+  right?: boolean;
+};
+
+const Step = ({ title, company, during, right }: StepProps) => (
   <div className="w-[20px] h-[20px] rounded-[50%] bg-primary z-10">
     <div
       className={classNames('w-[200px] relative', {
@@ -23,7 +30,7 @@ const Step = ({ title, company, during, right }) => (
 const Experience = () => {
   const [start, setStart] = useState(false);
 
-  const experienceRef = useRef();
+  const experienceRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -33,7 +40,7 @@ const Experience = () => {
         setStart(false);
       }
     });
-    observer.observe(experienceRef.current);
+    observer.observe(experienceRef.current as HTMLDivElement);
   }, []);
 
   return (

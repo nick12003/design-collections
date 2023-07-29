@@ -1,7 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
 
-export default function Section({ children, className, title, id }) {
+type SectionProps = {
+  children: React.ReactNode;
+  className?: string;
+  title?: string;
+  id?: string;
+};
+
+export default function Section({ children, className, title, id }: SectionProps) {
   return (
     <section
       className={classNames('w-full min-w-[600px] max-w-[1280px] p-10 lg:p-20', className)}
