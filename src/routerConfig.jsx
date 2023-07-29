@@ -1,39 +1,21 @@
-import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
 import Layout from "@/Layout";
-import Loading from "@/components/Loading";
 import NotFount from "@/components/NotFount";
-import CodePreview from "@/components/CodePreview";
 import DocumentTitle from "@/components/DocumentTitle";
+import Project from "@/components/Project";
 import Home from "@/pages/Home";
-
-const lazyLoadCollections = (projectName) => {
-  const LazyElement = lazy(() => import(`@/pages/collections/${projectName}/index.jsx`));
-  return (
-    <Suspense fallback={<Loading />}>
-      <DocumentTitle title={projectName}>
-        <div className='w-full h-full flex flex-col  lg:flex-row'>
-          <div className='w-full h-full overflow-y-auto'>
-            <LazyElement />
-          </div>
-          <CodePreview />
-        </div>
-      </DocumentTitle>
-    </Suspense>
-  );
-};
 
 const createDesignRouter = (projectName) => {
   return {
     path: projectName,
-    element: lazyLoadCollections(projectName),
+    element: <Project projectName={projectName} />,
     loader: async () => {
       const jsResponse = await fetch(
-        `https://api.github.com/repos/nick12003/design-collections/contents/src/components/collections/${projectName}/index.jsx`
+        `https://api.github.com/repos/nick12003/design-collections/contents/src/pages/collections/${projectName}/index.jsx`
       );
       const cssResponse = await fetch(
-        `https://api.github.com/repos/nick12003/design-collections/contents/src/components/collections/${projectName}/style.module.scss`
+        `https://api.github.com/repos/nick12003/design-collections/contents/src/pages/collections/${projectName}/style.module.scss`
       );
       const jsResult = await jsResponse.json();
       const cssResult = await cssResponse.json();
